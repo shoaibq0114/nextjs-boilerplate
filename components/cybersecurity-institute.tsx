@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { ShieldCheck, Code, Lock, Zap, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 export function CybersecurityInstituteComponent() {
   return (
@@ -37,7 +38,7 @@ export function CybersecurityInstituteComponent() {
           <div className="md:w-1/2">
             <Card className="bg-gray-700 border-green-400">
               <CardContent className="p-0">
-                <img src="/placeholder.svg?height=400&width=400" alt="Cybersecurity Trainer" className="w-full h-auto rounded-lg" />
+                <Image src="/placeholder.svg?height=400&width=400" alt="Cybersecurity Trainer" className="w-full h-auto rounded-lg" />
               </CardContent>
             </Card>
           </div>
@@ -84,7 +85,7 @@ export function CybersecurityInstituteComponent() {
             ].map((testimonial, index) => (
               <Card key={index} className="bg-gray-900 border-green-400">
                 <CardContent className="p-6">
-                  <p className="mb-4 italic">"{testimonial.quote}"</p>
+                  <p className="mb-4 italic">{testimonial.quote}</p>
                   <Separator className="my-4" />
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full bg-green-400 flex items-center justify-center mr-4">

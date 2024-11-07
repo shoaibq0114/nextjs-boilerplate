@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 import { CybersecurityInstituteComponent } from "@/components/cybersecurity-institute";
 
