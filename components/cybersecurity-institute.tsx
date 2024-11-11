@@ -4,8 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Shield, Cloud, Brain, Bell, ChevronRight } from 'lucide-react'
 import { BackgroundBeams } from './ui/background-beams'
+import { FlipWords } from './ui/flip-words'
+import { CardDemo } from './ui/content-card'
 
 export function CybersecurityInstituteComponent() {
   return (
@@ -22,7 +23,7 @@ export function CybersecurityInstituteComponent() {
             </nav>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="outline" className="">Sign In</Button>
+            <Button variant="outline" className="">Demo</Button>
             <Button variant="outline" className="">Contact Us</Button>
           </div>
         </div>
@@ -31,11 +32,11 @@ export function CybersecurityInstituteComponent() {
       {/* Hero Section */}
       <section className="py-20">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Defend. Secure. Simplify.</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6"><FlipWords words={["Defend", "Secure", "Simplify"]} duration={1500}/> <br /></h1>
           <h2 className="text-2xl md:text-4xl mb-8">With Precision AI™</h2>
           <Button className="">Get ready for Precision AI →</Button>
-        </div>
         <BackgroundBeams />
+        </div>
       </section>
 
       {/* Statistics Section */}
@@ -107,22 +108,10 @@ export function CybersecurityInstituteComponent() {
       <section className="py-16">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">See what our solutions can do for you</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: <Shield className="w-8 h-8" />, title: 'Secure your network' },
-              { icon: <Cloud className="w-8 h-8 " />, title: 'Secure your cloud' },
-              { icon: <Brain className="w-8 h-8 " />, title: 'Transform your SOC' },
-              { icon: <Bell className="w-8 h-8" />, title: 'Threat intel and incident response' },
-            ].map((solution, index) => (
-              <div key={index} className=" p-6 rounded-lg shadow-md">
-                {solution.icon}
-                <h3 className="text-xl font-bold mt-4 mb-2">{solution.title}</h3>
-                <p className="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <Link href="#" className=" hover:underline flex items-center">
-                  Learn more <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
+            <CardDemo />
+            <CardDemo />
+            <CardDemo />
           </div>
         </div>
       </section>
