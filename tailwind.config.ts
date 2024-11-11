@@ -62,9 +62,10 @@ const config: Config = {
   plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function addVariablesForColors({ addBase, theme }: any) {
-	let allColors = flattenColorPalette(theme("colors"));
-	let newVars = Object.fromEntries(
+	const allColors = flattenColorPalette(theme("colors"));
+	const newVars = Object.fromEntries(
 	  Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
 	);
    
