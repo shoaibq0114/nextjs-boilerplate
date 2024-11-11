@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Shield, Cloud, Brain, Bell, ChevronRight } from 'lucide-react'
+import { BackgroundBeams } from './ui/background-beams'
 
 export function CybersecurityInstituteComponent() {
   return (
@@ -34,6 +35,7 @@ export function CybersecurityInstituteComponent() {
           <h2 className="text-2xl md:text-4xl mb-8">With Precision AI™</h2>
           <Button className="">Get ready for Precision AI →</Button>
         </div>
+        <BackgroundBeams />
       </section>
 
       {/* Statistics Section */}
