@@ -65,7 +65,7 @@ export function CybersecurityInstituteComponent() {
       {/* Statistics Section */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Daily Security Statistics</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Cyber Insights</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
               { label: 'Worldwide estimated annual cost of cybercrime by 2025.', value: '$10.5 Trillion' },
@@ -106,7 +106,7 @@ export function CybersecurityInstituteComponent() {
       {/* Solutions Section */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">See what our solutions can do for you</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Courses Offered</h2>
           <div className="">
             <div className="py-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
               <div onClick={handleCEHClick}>
@@ -150,7 +150,7 @@ export function CybersecurityInstituteComponent() {
       {/* diff Section */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">The Hackersdemy diffreence</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">The Hackersdemy difference</h2>
             <p className='w-full pb-10'>At Hackersdemy, we empower you to achieve the tech career you deserve with top-tier courses, certifications and
               expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance.
               Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to
