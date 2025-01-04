@@ -151,7 +151,7 @@ export function CybersecurityInstituteComponent() {
       <section className="py-16">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">The Hackersdemy difference</h2>
-            <p className='w-full pb-10'>At Hackersdemy, we empower you to achieve the tech career you deserve with top-tier courses, certifications and
+            <p className='w-full pb-10'>At Hackersdemy. we empower you to achieve the tech career you deserve with top-tier courses, certifications and
               expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance.
               Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to
               prepare you for the ever-evolving cybersecurity challenges across all domains.</p>
