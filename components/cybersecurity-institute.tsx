@@ -66,7 +66,7 @@ export function CybersecurityInstituteComponent() {
       <section className="py-16">
         <div className="container mx-auto">
           <h2 className="text-5xl font-bold mb-10 text-center">Cyber Insights</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-7">
             {[
               { label: 'Worldwide estimated annual cost of cybercrime by 2025.', value: '$10.5 Trillion' },
               { label: 'Organizations hit worldwide by ransomware attacks (2024)', value: '59%' },
