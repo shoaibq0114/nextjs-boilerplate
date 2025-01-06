@@ -56,7 +56,7 @@ export function CybersecurityInstituteComponent() {
         <div className="container mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center"><FlipWords words={["Secure", "Respond", "Mitigate", "Harden", "Lead"]} duration={1500} /> <br /></h1>
           <h2 className="text-center text-2xl md:text-4xl mb-8 ">Turn Your Passion for Cybersecurity into a Professional Career</h2>
-          <h2 className="justify-start pt-20 text-2xl md:text-4xl mb-8 max-w-[50vw] font-bold">Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</h2>
+          <h2 className="justify-start pt-20 text-4xl md:text-6xl mb-8 max-w-[50vw] font-bold">Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</h2>
           {/* <Button className="">Explore Courses ➾</Button> */}
           <BackgroundBeams />
         </div>
@@ -65,7 +65,7 @@ export function CybersecurityInstituteComponent() {
       {/* Statistics Section */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Cyber Insights</h2>
+          <h2 className="text-5xl font-bold mb-10 text-center">Cyber Insights</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
               { label: 'Worldwide estimated annual cost of cybercrime by 2025.', value: '$10.5 Trillion' },
@@ -76,8 +76,8 @@ export function CybersecurityInstituteComponent() {
               { label: 'Organizations have unfulfilled Cybersecurity positions (2024)', value: '71%' },
             ].map((stat, index) => (
               <div key={index} className="p-4 rounded-lg shadow-md text-center">
-                <p className="text-2xl font-bold">{stat.value}</p>
-                <p className="text-sm">{stat.label}</p>
+                <p className="text-3xl font-bold">{stat.value}</p>
+                <p className="text-lg">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -89,7 +89,7 @@ export function CybersecurityInstituteComponent() {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center">
             <div className="text-center mb-8 md:mb-0">
-              <p className="mb-4 w-full">As cyber threats become increasingly sophisticated, there is a growing demand for skilled professionals to protect organizations from potential attacks. At Hackersdemy, we provide courses that give you industry-ready skills, helping you to level up your cybersecurity knowledge and open the doors to a wide range of job opportunities within the ever-evolving world of cybersecurity.</p>
+              <p className="mb-1 text-2xl w-full">As cyber threats become increasingly sophisticated, there is a growing demand for skilled professionals to protect organizations from potential attacks. At Hackersdemy, we provide courses that give you industry-ready skills, helping you to level up your cybersecurity knowledge and open the doors to a wide range of job opportunities within the ever-evolving world of cybersecurity.</p>
               {/* <Button className="">Explore Courses→</Button> */}
             </div>
             {/* <div className="md:w-1/2 grid grid-cols-3 gap-4">
@@ -150,8 +150,8 @@ export function CybersecurityInstituteComponent() {
       {/* diff Section */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">The Hackersdemy difference</h2>
-            <p className='w-full pb-10'>At Hackersdemy. we empower you to achieve the tech career you deserve with top-tier courses, certifications and
+          <h2 className="text-5xl font-bold mb-8 text-center">The Hackersdemy Difference</h2>
+            <p className='w-full text-2xl pb-10'>At Hackersdemy. we empower you to achieve the tech career you deserve with top-tier courses, certifications and
               expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance.
               Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to
               prepare you for the ever-evolving cybersecurity challenges across all domains.</p>
@@ -163,8 +163,8 @@ export function CybersecurityInstituteComponent() {
               { label: 'Companies have employed our students worldwide', value: '26+' },
             ].map((stat, index) => (
               <div key={index} className="p-4 rounded-lg shadow-md text-center">
-                <p className="text-2xl font-bold">{stat.value}</p>
-                <p className="text-sm">{stat.label}</p>
+                <p className="text-3xl font-bold">{stat.value}</p>
+                <p className="text-lg">{stat.label}</p>
               </div>
             ))}
           </div>
