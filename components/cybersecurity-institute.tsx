@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
-// import React, { useState } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
-// import { CardDemo } from './ui/content-card'
-// import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/nav-bar";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { cn } from "@/lib/utils";
 import React from 'react'
-// import { FocusCards } from './focus-cards'
+import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect'
+import { Testimonials } from './Testimonials'
+import { DemoForm } from './DemoForm'
+import Footer from './Footer'
 
 export function CybersecurityInstituteComponent() {
   const handleCEHClick = () => {
@@ -29,6 +29,19 @@ export function CybersecurityInstituteComponent() {
     console.log("WAPT card clicked")
 
   }
+  const typewriter_words = [
+    {
+      text: "The",
+    },
+    {
+      text: "Hackersdemy",
+      className: "text-red-500 dark:text-red-500",
+    },
+    {
+      text: "Difference",
+    }
+  ];
+
 
 
   return (
@@ -40,10 +53,11 @@ export function CybersecurityInstituteComponent() {
             <Image src="/logo.png" alt="Palo Alto Networks Logo" width={200} height={200} />
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="outline" className="">Home</Button>
-            <Button variant="outline" className="">About Us</Button>
-            <Button variant="outline" className="">Blog</Button>
-            <Button variant="outline" className="">Contact Us</Button>
+          <Link className={buttonVariants({ variant: "outline" })} href="/">Click here</Link>
+
+            <Link href="/about"><Button variant="outline" className="">About Us</Button></Link>
+            <Link href="/blog"><Button variant="outline" className="">Blog</Button></Link>
+            <Link href="/contact"><Button variant="outline" className="">Contact Us</Button></Link>
           </div>
         </div>
         <div className="relative w-full flex items-center justify-center">
@@ -150,7 +164,9 @@ export function CybersecurityInstituteComponent() {
       {/* diff Section */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-bold mb-8 text-center">The Hackersdemy Difference</h2>
+        <div className="flex flex-col items-center justify-center">
+        <TypewriterEffectSmooth words={typewriter_words} />
+        </div>
             <p className='w-full text-2xl pb-10'>At Hackersdemy. we empower you to achieve the tech career you deserve with top-tier courses, certifications and
               expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance.
               Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to
@@ -170,50 +186,16 @@ export function CybersecurityInstituteComponent() {
           </div>
         </div>
       </section>
+{/* Testimonials */}
+      <section>
+            <Testimonials />
+
+      </section>
 
 
       {/* Footer */}
-      <footer className=" py-12">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-bold mb-4">Products and Services</h3>
-              <ul className="space-y-2">
-                <li><Link href="#" className="text-sm hover:underline">Network Security Platform</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Cloud Security</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Security Operations</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li><Link href="#" className="text-sm hover:underline">Documentation</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Webinars</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">White Papers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Company</h3>
-              <ul className="space-y-2">
-                <li><Link href="#" className="text-sm hover:underline">About Us</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Careers</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Contact Us</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li><Link href="#" className="text-sm hover:underline">Privacy Policy</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Terms of Service</Link></li>
-                <li><Link href="#" className="text-sm hover:underline">Cookie Policy</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 text-center">
-            <Image src="/placeholder.svg" alt="Palo Alto Networks Logo" width={150} height={40} className="mx-auto mb-4" />
-            <p className="text-sm">&copy; 2024 Palo Alto Networks. All Rights Reserved.</p>
-          </div>
-        </div>
+      <footer className=" py-12 border">
+       <Footer />
       </footer>
     </div>
   )
