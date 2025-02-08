@@ -14,6 +14,12 @@ const nextConfig = {
             port: '',
             pathname: '/demos/**',
           },
+          {
+            protocol: 'https',
+            hostname: 'avatar.vercel.sh',
+            port: '',
+            pathname: '/**',
+          },
         ],
       },
       

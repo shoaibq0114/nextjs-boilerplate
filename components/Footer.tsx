@@ -3,10 +3,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-// import { SiLinkedin } from "react-icons/si";
-// import { GrInstagram } from "react-icons/gr";
-import { Twitter, Instagram, LinkedinIcon as LinkedIn } from 'lucide-react'
 
 const Footer = () => {
 const date = new Date()

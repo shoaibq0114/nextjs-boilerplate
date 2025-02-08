@@ -1,20 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Button, buttonVariants } from "@/components/ui/button"
+// import Link from 'next/link'
 import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
-import { cn } from "@/lib/utils";
 import React from 'react'
 import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect'
 import { Testimonials } from './Testimonials'
-import { DemoForm } from './DemoForm'
+import { ShinyButton } from './magicui/shiny-button'
 import Footer from './Footer'
+// import Router from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export function CybersecurityInstituteComponent() {
+  const router = useRouter()
+
   const handleCEHClick = () => {
     console.log("CEH card clicked")
 
@@ -46,33 +48,31 @@ export function CybersecurityInstituteComponent() {
 
   return (
     <div className="min-h-screen">
+              <BackgroundBeams />
       {/* Header */}
       <section className="">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
-            <Image src="/logo.png" alt="Palo Alto Networks Logo" width={200} height={200} />
+        <Image src="/logo.png" alt="Palo Alto Networks Logo" width={300} height={300} className='py-10' />
           </div>
           <div className="flex items-center space-x-4">
-          <Link className={buttonVariants({ variant: "outline" })} href="/">Click here</Link>
-
-            <Link href="/about"><Button variant="outline" className="">About Us</Button></Link>
-            <Link href="/blog"><Button variant="outline" className="">Blog</Button></Link>
-            <Link href="/contact"><Button variant="outline" className="">Contact Us</Button></Link>
+            <ShinyButton onClick={() => router.push('/')}>Home</ShinyButton>
+            <ShinyButton onClick={() => router.push('/about')}>About Us</ShinyButton>
+            <ShinyButton onClick={() => router.push('/blog')}>Blog</ShinyButton>
+            <ShinyButton onClick={() => router.push('#footer')}>test</ShinyButton>
           </div>
-        </div>
-        <div className="relative w-full flex items-center justify-center">
-          <Navbar className="top-2" />
         </div>
       </section>
 
       {/* Hero Section */}
-      <section className="py-20">
+      <section className="py-20 relative">
+        
         <div className="container mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center"><FlipWords words={["Secure", "Respond", "Mitigate", "Harden", "Lead"]} duration={1500} /> <br /></h1>
           <h2 className="text-center text-2xl md:text-4xl mb-8 ">Turn Your Passion for Cybersecurity into a Professional Career</h2>
           <h2 className="justify-start pt-20 text-4xl md:text-6xl mb-8 max-w-[50vw] font-bold">Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</h2>
           {/* <Button className="">Explore Courses ➾</Button> */}
-          <BackgroundBeams />
+
         </div>
       </section>
 
@@ -194,67 +194,11 @@ export function CybersecurityInstituteComponent() {
 
 
       {/* Footer */}
-      <footer className=" py-12 border">
+      <footer className=" py-12 border" id='footer'>
        <Footer />
       </footer>
     </div>
   )
-}
-
-function Navbar({ className }: { className?: string }) {
-  // const [active, setActive] = useState<string | null>(null);
-  return (
-    <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
-    >
-      {/* <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-            <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
-      </Menu> */}
-    </div>
-  );
 }
 
 const Card = ({
@@ -271,7 +215,7 @@ const Card = ({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem] relative"
+      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem]"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
