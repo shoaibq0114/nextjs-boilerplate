@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import Image from 'next/image'
-// import Link from 'next/link'
 import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,8 +10,9 @@ import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect'
 import { Testimonials } from './Testimonials'
 import { ShinyButton } from './magicui/shiny-button'
 import Footer from './Footer'
-// import Router from 'next/navigation'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+import { HyperText } from './ui/hover-text';
 
 export function CybersecurityInstituteComponent() {
   const router = useRouter()
@@ -53,13 +53,20 @@ export function CybersecurityInstituteComponent() {
       <section className="">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
-        <Image src="/logo.png" alt="Palo Alto Networks Logo" width={300} height={300} className='py-10' />
+          <Link href="/">
+                      <Image src="/logo.png" alt="Palo Alto Networks Logo" width={300} height={300}/>
+                    </Link>
           </div>
           <div className="flex items-center space-x-4">
             <ShinyButton onClick={() => router.push('/')}>Home</ShinyButton>
             <ShinyButton onClick={() => router.push('/about')}>About Us</ShinyButton>
             <ShinyButton onClick={() => router.push('/blog')}>Blog</ShinyButton>
-            <ShinyButton onClick={() => router.push('#footer')}>test</ShinyButton>
+            <ShinyButton onClick={() => {
+              const footerElement = document.getElementById('footer');
+              if (footerElement) {
+              footerElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>Contact Us</ShinyButton>
           </div>
         </div>
       </section>
@@ -90,7 +97,7 @@ export function CybersecurityInstituteComponent() {
               { label: 'Organizations have unfulfilled Cybersecurity positions (2024)', value: '71%' },
             ].map((stat, index) => (
               <div key={index} className="p-4 rounded-lg shadow-md text-center">
-                <p className="text-3xl font-bold">{stat.value}</p>
+                <HyperText>{stat.value}</HyperText>
                 <p className="text-lg">{stat.label}</p>
               </div>
             ))}

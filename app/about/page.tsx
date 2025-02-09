@@ -7,6 +7,7 @@ import { Boxes } from "@/components/ui/background-boxes";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils"
 import { Highlight } from "@/components/ui/highlight-about";
+import Link from "next/link";
 
 export default function AboutUs() {
   const router = useRouter();
@@ -15,22 +16,27 @@ export default function AboutUs() {
       <section className="relative">
         <div className="container mx-auto flex justify-between items-center relative z-10">
           <div className="flex items-center space-x-4">
-            <Image
-              src="/logo.png"
-              alt="Palo Alto Networks Logo"
-              width={300}
-              height={300}
-            />
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Hackersdemy Logo"
+                width={300}
+                height={300}
+              />
+            </Link>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 text-white">
             <ShinyButton onClick={() => router.push("/")}>Home</ShinyButton>
             <ShinyButton onClick={() => router.push("/about")}>
               About Us
             </ShinyButton>
             <ShinyButton onClick={() => router.push("/blog")}>Blog</ShinyButton>
-            <ShinyButton onClick={() => router.push("#footer")}>
-              test
-            </ShinyButton>
+            <ShinyButton onClick={() => {
+              const footerElement = document.getElementById('footer');
+              if (footerElement) {
+              footerElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>Contact Us</ShinyButton>
           </div>
         </div>
       </section>
@@ -44,35 +50,64 @@ export default function AboutUs() {
       a time.</h2>
     </div>
 
-      <Tabs defaultValue="who" className="mb-12">
+      <Tabs defaultValue="who" className="mb-12 py-4 max-w-4xl mx-auto">
         <TabsList className=" bg-black flex justify-center">
-          <TabsTrigger value="who" className="text-lg px-6 py-2">
-            Who we are
-          </TabsTrigger>
           <TabsTrigger value="mission" className="text-lg px-6 py-2">
             Our mission
           </TabsTrigger>
+          <TabsTrigger value="who" className="text-lg px-6 py-2">
+            Who we are
+          </TabsTrigger>
           <TabsTrigger value="why" className="text-lg px-6 py-2">
-            Why HackerAcademy
+            Why Hackersdemy
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="who" className="space-y-4 mt-6">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>{/*image here*/}</div>
+          <div className="grid md:grid-cols-1 gap-8 text-xl">
+          <h2 className="text-2xl font-semibold">Who We Are</h2>
+  
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold">Leading the Change</h2>
               <p className="text-gray-300">
-                Our team consists of industry veterans and cybersecurity experts
-                committed to sharing their expertise with the next generation of
-                security professionals.
+              Welcome to Hackersdemy! I&apos;m Mohammed Shoaib, a cybersecurity professional and educator with over 7 years of experience in this dynamic and ever-growing field. Cybersecurity has been my passion for years, and I&apos;ve made it my mission to share what I&apos;ve learned through hands-on experience with students from all walks of life.
               </p>
             </div>
+            <div className="space-y-4">
+              <p className="text-gray-300">
+              I hold certifications such as Certified Ethical Hacker (CEH), Splunk Cybersecurity Defense Analyst (SPLK-5001), and eWPT (eLearnSecurity Web Application Penetration Tester), among others. Over the course of my career, I&apos;ve trained more than 4,000 students—both online and offline—from India and 12+ countries, including the United States, Canada, Iran, Australia, and Bangladesh.
+              </p>
+            </div>
+  
+  
+            <div className="space-y-4">
+              <p className="text-gray-300">
+              My teaching journey began at renowned institutes like Entersoft Labs and Durgasoft Solutions in Hyderabad, as well as Apponix Technologies in Bengaluru. However, after COVID-19, I decided to pursue my vision of creating my own institute. I founded Zeroday Hackers, which later evolved into Hackersdemy—a name that emphasizes our dedication to simplifying and teaching cybersecurity concepts with a focus on practical application.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-300">
+              Currently, I work as a Senior Security Analyst at Symbiosys Technologies in Visakhapatnam, actively engaging in the same domain I teach. This allows me to provide students with real-time insights into the tools, techniques, and methodologies used in today&apos;s cybersecurity landscape. I believe in teaching what I&apos;ve learned over the years from my own practical experience in the industry, ensuring that students gain not just theoretical knowledge but a deep understanding of how to apply it in real-world scenarios.
+              </p>
+            </div>
+  
+  
+            <div className="space-y-4">
+              <p className="text-gray-300">
+              At Hackersdemy, I focus on breaking down complex cybersecurity topics into simple, relatable concepts. My teaching includes real-time examples and hands-on training with industry-relevant tools, so students are not only well-prepared but confident in their skills. Whether it&apos;s ethical hacking, SOC analysis, penetration testing, or cyber forensics, I ensure my students have a solid foundation to build successful careers in cybersecurity.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-300">
+              Hackersdemy is an inclusive space for students from all educational backgrounds. Whether you&apos;re a beginner or looking to advance your skills, I&apos;m here to guide you every step of the way. If you&apos;re ready to take the next step in your cybersecurity journey, let&apos;s make it happen together!
+              </p>
+            </div>
+  
+
           </div>
         </TabsContent>
 
         <TabsContent value="mission" className="space-y-4 mt-6">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 text-xl">
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold">Our Mission</h2>
               <p className="text-gray-300 text-xl">
@@ -118,54 +153,35 @@ export default function AboutUs() {
         </TabsContent>
 
         <TabsContent value="why" className="space-y-4 mt-6">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>{/*image here*/}</div>
+          <div className="grid md:grid-cols-1 gap-8 text-xl">
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold">Why Choose Us</h2>
-              <p className="text-gray-300">
-                Hackersdemy is a leading institute dedicated to empowering
-                individuals with the skills and certifications needed to excel
-                in the dynamic field of cybersecurity. Our mission is to provide
-                students, regardless of their educational background, with a
-                strong foundation in both theoretical concepts and practical
-                applications, preparing them to thrive in their careers with
-                confidence. What truly sets Hackersdemy apart is our focus on
-                hands-on, industry-relevant training. We ensure students gain
-                proficiency in cutting-edge tools and techniques widely used by
-                cybersecurity professionals today. Our curriculum evolves
-                continually, staying aligned with the latest advancements to
-                equip students with the knowledge and skills necessary to tackle
-                real-world challenges. We take pride in our ability to simplify
-                complex cybersecurity topics. Our trainers, who are experienced
-                professionals with exceptional communication skills, break down
-                intricate concepts into easy-to-understand ideas. By integrating
-                real-time, practical examples into our teaching, we bridge the
-                gap between theory and application, making learning both
-                engaging and impactful. Whether it&apos;s ethical hacking, SOC
-                analysis, advanced penetration testing, or cyber forensics, our
-                approach ensures students can grasp even the most challenging
-                topics with ease. Hackersdemy&apos;s trainers have a global
-                teaching footprint, having mentored students from countries such
-                as the United States, Canada, Iran, Bangladesh, Kenya, the
-                Netherlands, and Australia, among others. Their international
-                experience, combined with fluency in regional languages like
-                Hindi and Telugu for Indian students, creates an inclusive and
-                supportive learning environment for all. Whether you&apos;re an
-                international learner or from India, we make cybersecurity
-                education accessible and tailored to your needs. Our commitment
-                to excellence is reflected in the success of our students, who
-                have gone on to secure roles in both innovative startups and
-                renowned corporations. At Hackersdemy, we don’t just provide
-                training; we transform students into industry-ready
-                professionals, prepared to excel in the ever-evolving world of
-                cybersecurity.
-              </p>
+                <p className="text-gray-300">
+                Hackersdemy is a leading institute dedicated to empowering individuals with the skills and certifications needed to excel in the dynamic field of cybersecurity. Our mission is to provide students, regardless of their educational background, with a strong foundation in both theoretical concepts and practical applications, preparing them to thrive in their careers with confidence.
+                </p>
+                <p className="text-gray-300">
+                What truly sets Hackersdemy apart is our focus on hands-on, industry-relevant training. We ensure students gain proficiency in cutting-edge tools and techniques widely used by cybersecurity professionals today. Our curriculum evolves continually, staying aligned with the latest advancements to equip students with the knowledge and skills necessary to tackle real-world challenges.
+                </p>
+                <p className="text-gray-300">
+                We take pride in our ability to simplify complex cybersecurity topics. Our trainers, who are experienced professionals with exceptional communication skills, break down intricate concepts into easy-to-understand ideas. By integrating real-time, practical examples into our teaching, we bridge the gap between theory and application, making learning both engaging and impactful.
+                </p>
+                <p className="text-gray-300">
+                Whether it&apos;s ethical hacking, SOC analysis, advanced penetration testing, or cyber forensics, our approach ensures students can grasp even the most challenging topics with ease. Hackersdemy&apos;s trainers have a global teaching footprint, having mentored students from countries such as the United States, Canada, Iran, Bangladesh, Kenya, the Netherlands, and Australia, among others.
+                </p>
+                <p className="text-gray-300">
+                Their international experience, combined with fluency in regional languages like Hindi and Telugu for Indian students, creates an inclusive and supportive learning environment for all. Whether you&apos;re an international learner or from India, we make cybersecurity education accessible and tailored to your needs.
+                </p>
+                <p className="text-gray-300">
+                Our commitment to excellence is reflected in the success of our students, who have gone on to secure roles in both innovative startups and renowned corporations. At Hackersdemy, we don&apos;t just provide training; we transform students into industry-ready professionals, prepared to excel in the ever-evolving world of cybersecurity.
+                </p>
             </div>
           </div>
         </TabsContent>
       </Tabs>
 
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
     </div>
   );
 }

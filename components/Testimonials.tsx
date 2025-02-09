@@ -58,23 +58,23 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative w-80 cursor-pointer overflow-hidden rounded-xl border p-6", // Increased width and padding
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
         "dark:border-gray-50/[.1] dark:bg-gray-950 dark:hover:bg-gray-800",
       )}
     >
-      <div className="flex flex-row items-center gap-2">
-        <Image  className="rounded-full" width="32" height="32" alt="" src={img} />
+      <div className="flex flex-row items-center gap-4"> {/* Increased gap */}
+        <Image className="rounded-full" width="48" height="48" alt="" src={img} /> {/* Increased width and height */}
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
+          <figcaption className="text-lg font-medium dark:text-white"> {/* Increased text size */}
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          <p className="text-sm font-medium dark:text-white/40">{username}</p> {/* Increased text size */}
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-4 text-base">{body}</blockquote> {/* Increased margin-top and text size */}
     </figure>
   );
 };
