@@ -177,35 +177,30 @@ export function CybersecurityInstituteComponent() {
           <div className="">
             <div className="py-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
               <div onClick={handleCEHClick}>
-                <Card title="Certified Ethical Hacking" icon={<Image src="/CEH.png" alt="CEH" width={600} height={600} />}>
+                <Card title="Certified Ethical Hacking" icon={<Image src="/CEH.png" alt="CEH" width={600} height={600} />} text="Master the skills to think and act like a hacker to protect systems from cyber threats">
                   <CanvasRevealEffect
                     animationSpeed={5.1}
-                    containerClassName="bg-emerald-900"
+                    containerClassName="bg-rose-600"
+                    colors={[[255], [120], [255]]} 
                   />
-                </Card>
-              </div>
-              <div onClick={handleSOCClick}>
-                <Card title="SOC" icon={<Image src="/SOC.png" alt="CEH" width={600} height={600} />}>
-                  <CanvasRevealEffect
-                    animationSpeed={3}
-                    containerClassName="bg-black"
-                    colors={[
-                      [236, 72, 153],
-                      [232, 121, 249],
-                    ]}
-                    dotSize={2}
-                  />
-                  {/* Radial gradient for the cute fade */}
-                  <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
                 </Card>
               </div>
               <div onClick={handleWAPTClick}>
-                <Card title="Web Application Penetration Testing" icon={<Image src="/WAPT.png" alt="CEH" width={600} height={600} />}>
+                <Card title="Web Application Penetration Testing" icon={<Image src="/WAPT.png" alt="WAPT" width={600} height={600} />} text="Uncover vulnerabilities in web apps and secure them from real-world attacks.">
                   <CanvasRevealEffect
                     animationSpeed={3}
                     containerClassName="bg-sky-600"
-                    colors={[[125, 211, 252]]}
                   />
+                </Card>
+              </div>
+            <div onClick={handleSOCClick}>
+                <Card title="SOC" icon={<Image src="/SOC.png" alt="CEH" width={600} height={600} />} text="Detect, analyze, and respond to cyber threats in real-time as a SOC expert.">
+                  <CanvasRevealEffect
+                    animationSpeed={3}
+                    containerClassName="bg-emerald-900"
+                  />
+                  {/* Radial gradient for the cute fade */}
+                  <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
                 </Card>
               </div>
             </div>
@@ -258,17 +253,19 @@ const Card = ({
   title,
   icon,
   children,
+  text,
 }: {
   title: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
+  text: string;
 }) => {
   const [hovered, setHovered] = React.useState(false);
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem]"
+      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem]"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
@@ -283,15 +280,18 @@ const Card = ({
             className="h-full w-full absolute inset-0"
           >
             {children}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-white text-4xl font-bold px-6">{text}</p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <div className="relative z-20">
-        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
+        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center">
           {icon}
         </div>
-        <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+        <h2 className="dark:text-white text-xl relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
           {title}
         </h2>
       </div>
