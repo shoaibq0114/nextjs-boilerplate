@@ -50,7 +50,7 @@ export default function AboutUs() {
       a time.</h2>
     </div>
 
-      <Tabs defaultValue="who" className="mb-12 py-4 max-w-4xl mx-auto">
+      <Tabs defaultValue="mission" className="mb-12 py-4 max-w-4xl mx-auto">
         <TabsList className=" bg-black flex justify-center">
           <TabsTrigger value="mission" className="text-lg px-6 py-2">
             Our mission

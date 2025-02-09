@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
+
+import {Tomorrow} from "next/font/google"
 import Image from 'next/image'
 import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
@@ -13,9 +15,21 @@ import Footer from './Footer'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 import { HyperText } from './ui/hover-text';
+// import { useIntersectionObserver } from '@/lib/hooks/use-intersection';
+import { TypingAnimation } from "./ui/typing-animation-hero"
 
+const tomorrow = Tomorrow(
+ {
+  subsets: ["latin"],
+  weight: "600",
+  style: "normal",
+  display: "swap",
+  fallback: ["sans-serif"],
+ }
+)
 export function CybersecurityInstituteComponent() {
   const router = useRouter()
+  // const [setRef, isIntersecting] = useIntersectionObserver({ threshold: 0.99 });
 
   const handleCEHClick = () => {
     console.log("CEH card clicked")
@@ -54,20 +68,52 @@ export function CybersecurityInstituteComponent() {
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
           <Link href="/">
-                      <Image src="/logo.png" alt="Palo Alto Networks Logo" width={300} height={300}/>
+                      <Image src="/logo.png" alt="Hackersdemy Logo" width={300} height={300}/>
                     </Link>
           </div>
-          <div className="flex items-center space-x-4">
-            <ShinyButton onClick={() => router.push('/')}>Home</ShinyButton>
-            <ShinyButton onClick={() => router.push('/about')}>About Us</ShinyButton>
-            <ShinyButton onClick={() => router.push('/blog')}>Blog</ShinyButton>
-            <ShinyButton onClick={() => {
+            <div className="flex items-center space-x-4">
+             { /*BUTTON COLOR - SLATE-700*/}
+            <ShinyButton 
+              onClick={() => router.push('/')}
+              className="hover:bg-slate-700 hover:text-black"
+            >
+              Home
+            </ShinyButton>
+            <ShinyButton 
+              onClick={() => {
+                const footerElement = document.getElementById('courses');
+                if (footerElement) {
+                  footerElement.scrollIntoView({ behavior: 'smooth' });
+                }
+                }}
+              className="hover:bg-slate-700 hover:text-black"
+            >
+              Courses
+            </ShinyButton>
+            <ShinyButton 
+              onClick={() => router.push('/about')}
+              className="hover:bg-slate-700 hover:text-black"
+            >
+              About Us
+            </ShinyButton>
+            <ShinyButton 
+              onClick={() => router.push('/blog')}
+              className="hover:bg-slate-700 hover:text-black"
+            >
+              Blog
+            </ShinyButton>
+            <ShinyButton 
+              onClick={() => {
               const footerElement = document.getElementById('footer');
               if (footerElement) {
-              footerElement.scrollIntoView({ behavior: 'smooth' });
+                footerElement.scrollIntoView({ behavior: 'smooth' });
               }
-            }}>Contact Us</ShinyButton>
-          </div>
+              }}
+              className="hover:bg-slate-700 hover:text-black"
+            >
+              Contact Us
+            </ShinyButton>
+            </div>
         </div>
       </section>
 
@@ -76,15 +122,15 @@ export function CybersecurityInstituteComponent() {
         
         <div className="container mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center"><FlipWords words={["Secure", "Respond", "Mitigate", "Harden", "Lead"]} duration={1500} /> <br /></h1>
-          <h2 className="text-center text-2xl md:text-4xl mb-8 ">Turn Your Passion for Cybersecurity into a Professional Career</h2>
-          <h2 className="justify-start pt-20 text-4xl md:text-6xl mb-8 max-w-[50vw] font-bold">Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</h2>
+          <h2 className="text-center text-2xl md:text-4xl mb-8">Turn Your Passion for Cybersecurity into a Professional Career</h2>
+            <h1 className={`justify-start text-4xl md:text-6xl pt-20 mb-8 max-w-[50vw] ${tomorrow.className}`} style={{ height: '18rem' }}><TypingAnimation>Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</TypingAnimation></h1>
           {/* <Button className="">Explore Courses ➾</Button> */}
 
         </div>
       </section>
 
       {/* Statistics Section */}
-      <section className="py-16">
+      <section className="">
         <div className="container mx-auto">
           <h2 className="text-5xl font-bold mb-10 text-center">Cyber Insights</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-7">
@@ -96,8 +142,8 @@ export function CybersecurityInstituteComponent() {
               { label: 'Surge in cyberattacks in India alone in Q2 (2024)', value: '115%' },
               { label: 'Organizations have unfulfilled Cybersecurity positions (2024)', value: '71%' },
             ].map((stat, index) => (
-              <div key={index} className="p-4 rounded-lg shadow-md text-center">
-                <HyperText>{stat.value}</HyperText>
+              <div key={index} className="p-4 rounded-lg shadow-md text-center" >
+                {<HyperText>{stat.value}</HyperText>}
                 <p className="text-lg">{stat.label}</p>
               </div>
             ))}
@@ -125,7 +171,7 @@ export function CybersecurityInstituteComponent() {
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16">
+      <section className="py-16" id="courses">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">Courses Offered</h2>
           <div className="">
