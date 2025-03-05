@@ -178,15 +178,20 @@ export function CybersecurityInstituteComponent() {
             <div className="py-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
               <div onClick={handleCEHClick}>
                 <Card title="Certified Ethical Hacking" icon={<Image src="/CEH.png" alt="CEH" width={600} height={600} />} text="Master the skills to think and act like a hacker to protect systems from cyber threats">
+                 {/*TODO: change the shades for card colours (CEH)*/}
                   <CanvasRevealEffect
-                    animationSpeed={5.1}
-                    containerClassName="bg-rose-600"
-                    colors={[[255], [120], [255]]} 
+                    animationSpeed={3}
+                    containerClassName="bg-[#BC3232]"
+                    colors={[
+                      [240, 107, 107]
+                    ]} 
+                    dotSize={8}
                   />
                 </Card>
               </div>
               <div onClick={handleWAPTClick}>
                 <Card title="Web Application Penetration Testing" icon={<Image src="/WAPT.png" alt="WAPT" width={600} height={600} />} text="Uncover vulnerabilities in web apps and secure them from real-world attacks.">
+                  
                   <CanvasRevealEffect
                     animationSpeed={3}
                     containerClassName="bg-sky-600"
