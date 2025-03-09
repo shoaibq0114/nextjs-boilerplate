@@ -11,7 +11,7 @@ import React from 'react'
 import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect'
 import { Testimonials } from './Testimonials'
 import { ShinyButton } from './magicui/shiny-button'
-import Footer from './Footer'
+// import Footer from './Footer'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 import { HyperText } from './ui/hover-text';
@@ -33,16 +33,19 @@ export function CybersecurityInstituteComponent() {
 
   const handleCEHClick = () => {
     console.log("CEH card clicked")
+    router.push('/ceh')
 
   }
 
   const handleSOCClick = () => {
     console.log("SOC card clicked")
+    router.push('/soc')
 
   }
 
   const handleWAPTClick = () => {
     console.log("WAPT card clicked")
+    router.push('/wapt')
 
   }
   const typewriter_words = [
@@ -247,9 +250,6 @@ export function CybersecurityInstituteComponent() {
 
 
       {/* Footer */}
-      <footer className=" py-12 border" id='footer'>
-       <Footer />
-      </footer>
     </div>
   )
 }
@@ -286,7 +286,7 @@ const Card = ({
           >
             {children}
             <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-white text-4xl font-bold px-6">{text}</p>
+              <p className="text-white text-4xl font-bold px-6">{text} <br /> <span className="text-sm">Click to know more</span></p>
             </div>
           </motion.div>
         )}
