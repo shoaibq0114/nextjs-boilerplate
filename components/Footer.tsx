@@ -13,7 +13,7 @@ const date = new Date()
   }
 
   return (
-    <footer className="bg-black text-white border-t border-gray-700 py-8" id="footer">
+    <footer className="bg-black text-white border-t border-gray-700 py-8"  id="footer">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-3 md:grid-cols-3 gap-8">
         <div>
