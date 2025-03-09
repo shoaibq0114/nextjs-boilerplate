@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import { ShinyButton } from './magicui/shiny-button'
 import { useRouter } from 'next/navigation'
-import { Button } from './ui/button'
 
 export function Navbar() {
   const router = useRouter()

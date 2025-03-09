@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { ShinyButton } from "@/components/magicui/shiny-button";
-import { Boxes, BoxesCore } from "@/components/ui/background-boxes";
+// import { Boxes, BoxesCore } from "@/components/ui/background-boxes";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Highlight } from "@/components/ui/highlight-about";
@@ -45,7 +45,7 @@ export default function AboutUs() {
         flickerChance={0.1}
       />
       <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
-      In a world driven by technology, cybersecurity isn't optional - <Highlight>it's essential</Highlight>.
+      In a world driven by technology, cybersecurity isn&apos;t optional - <Highlight>it&apos;s essential</Highlight>.
       </h1>
       <p className="text-2xl text-center mt-2 text-neutral-300 relative z-20">
       At HackerAcademy, we are building a safer tomorrow one professional at a time.
