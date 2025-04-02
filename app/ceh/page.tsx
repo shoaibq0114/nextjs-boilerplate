@@ -269,7 +269,7 @@ export default function Home() {
               <AccordionContent className=" text-xl">
               <span className="font-bold">Anyone</span> with an interest in cybersecurity can join CEH v13, regardless of their background. At Hackersdemy, we’ve made the course 
               accessible to learners from all domains of all age groups by covering essential fundamentals like Networking basics, Linux commands, 
-              and Virtualization prior to the course curriculum. Whether you're a high school student or a working professional from any field, this 
+              and Virtualization prior to the course curriculum. Whether you&apos;re a high school student or a working professional from any field, this 
               course is designed to help you build a strong foundation in ethical hacking from scratch with ease.
               </AccordionContent>
             </AccordionItem>

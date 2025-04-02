@@ -114,7 +114,7 @@ export default function Home() {
 
             <div className="space-y-4">
               <p className="text-gray-300">
-              In today's digital era, web applications are integral to business operations, facilitating services from online banking 
+              In today&apos;s digital era, web applications are integral to business operations, facilitating services from online banking 
               to e-commerce. However, this reliance has made them prime targets for cyberattacks. In 2024 alone, there was a 20% increase 
               in exploited security vulnerabilities compared to the previous year. As web applications continue to be prime targets for cybercriminals, 
               understanding how to secure them is more important than ever. The global penetration testing market is projected to exceed $5 billion annually by 2031.
@@ -123,7 +123,7 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-gray-300">
                 The Web Application Penetration Testing course at Hackersdemy dives deep into identifying and exploiting vulnerabilities within web 
-                applications based on the OWASP Top 10 Framework – the industry's benchmark for the most critical web application security risks, helping 
+                applications based on the OWASP Top 10 Framework – the industry&apos;s benchmark for the most critical web application security risks, helping 
                 you learn how attackers breach these systems and how to protect them.  Beyond these, the curriculum explores advanced vulnerabilities and 
                 attack vectors, ensuring participants are equipped to tackle both prevalent and emerging threats. It is perfect for aspiring penetration 
                 testers, security analysts, and developers who want to enhance their ability to secure web applications.
@@ -132,10 +132,10 @@ export default function Home() {
 
             <div className="space-y-4">
               <p className="text-gray-300">
-              By joining our course, you'll gain hands-on experience in identifying, exploiting, and securing web applications. 
+              By joining our course, you&apos;ll gain hands-on experience in identifying, exploiting, and securing web applications. 
               This course is ideal for aspiring ethical hackers, cybersecurity professionals, SOC analysts, web developers, IT administrators, 
               and anyone passionate about securing web applications against real-world cyber threats and with the increasing frequency of cyberattacks 
-              and the expanding penetration testing market, there's no better time to equip yourself with the skills that organizations worldwide are seeking.​
+              and the expanding penetration testing market, there&apos;s no better time to equip yourself with the skills that organizations worldwide are seeking.​
               </p>
             </div>
             <div className="space-y-4">
