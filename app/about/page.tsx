@@ -1,8 +1,6 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Footer from "@/components/Footer";
 import Image from "next/image";
-import { ShinyButton } from "@/components/magicui/shiny-button";
 // import { Boxes, BoxesCore } from "@/components/ui/background-boxes";
 import { cn } from "@/lib/utils";
 import { Highlight } from "@/components/ui/highlight-about";
