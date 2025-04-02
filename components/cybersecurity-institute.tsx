@@ -7,15 +7,10 @@ import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
-import React from 'react'
+  import React, { useEffect } from 'react'
 import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect'
 import { Testimonials } from './Testimonials'
-import { ShinyButton } from './magicui/shiny-button'
-// import Footer from './Footer'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link';
-import { HyperText } from './ui/hover-text';
-// import { useIntersectionObserver } from '@/lib/hooks/use-intersection';
 import { TypingAnimation } from "./ui/typing-animation-hero"
 
 const tomorrow = Tomorrow(
@@ -29,6 +24,14 @@ const tomorrow = Tomorrow(
 )
 export function CybersecurityInstituteComponent() {
   const router = useRouter()
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = ''; // Reset on unmount
+    };
+  }, []);
+
   // const [setRef, isIntersecting] = useIntersectionObserver({ threshold: 0.99 });
 
   const handleCEHClick = () => {
@@ -66,59 +69,6 @@ export function CybersecurityInstituteComponent() {
   return (
     <div className="min-h-screen">
               <BackgroundBeams />
-      {/* Header */}
-      <section className="">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-          <Link href="/">
-                      <Image src="/logo.png" alt="Hackersdemy Logo" width={300} height={300}/>
-                    </Link>
-          </div>
-            <div className="flex items-center space-x-4">
-             { /*BUTTON COLOR - SLATE-700*/}
-            <ShinyButton 
-              onClick={() => router.push('/')}
-              className="hover:bg-slate-700 hover:text-black"
-            >
-              Home
-            </ShinyButton>
-            <ShinyButton 
-              onClick={() => {
-                const footerElement = document.getElementById('courses');
-                if (footerElement) {
-                  footerElement.scrollIntoView({ behavior: 'smooth' });
-                }
-                }}
-              className="hover:bg-slate-700 hover:text-black"
-            >
-              Courses
-            </ShinyButton>
-            <ShinyButton 
-              onClick={() => router.push('/about')}
-              className="hover:bg-slate-700 hover:text-black"
-            >
-              About Us
-            </ShinyButton>
-            <ShinyButton 
-              onClick={() => router.push('/blog')}
-              className="hover:bg-slate-700 hover:text-black"
-            >
-              Blog
-            </ShinyButton>
-            <ShinyButton 
-              onClick={() => {
-              const footerElement = document.getElementById('footer');
-              if (footerElement) {
-                footerElement.scrollIntoView({ behavior: 'smooth' });
-              }
-              }}
-              className="hover:bg-slate-700 hover:text-black"
-            >
-              Contact Us
-            </ShinyButton>
-            </div>
-        </div>
-      </section>
 
       {/* Hero Section */}
       <section className="py-20 relative">
@@ -146,7 +96,8 @@ export function CybersecurityInstituteComponent() {
               { label: 'Organizations have unfulfilled Cybersecurity positions (2024)', value: '71%' },
             ].map((stat, index) => (
               <div key={index} className="p-4 rounded-lg shadow-md text-center" >
-                {<HyperText>{stat.value}</HyperText>}
+                <p className="text-2xl font-bold">{stat.value}</p>
+               {/* {<HyperText>{stat.value}</HyperText>} */}
                 <p className="text-lg">{stat.label}</p>
               </div>
             ))}
@@ -282,6 +233,8 @@ const Card = ({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
             className="h-full w-full absolute inset-0"
           >
             {children}
