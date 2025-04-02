@@ -7,7 +7,6 @@ import { ShinyButton } from "@/components/magicui/shiny-button";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Highlight } from "@/components/ui/highlight-about";
-import Link from "next/link";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function AboutUs() {
