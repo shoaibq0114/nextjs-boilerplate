@@ -14,24 +14,6 @@ export default function AboutUs() {
   const router = useRouter();
   return (
     <div className="min-h-screen bg-black text-white p-6 mx-auto">
-      <section className="relative">
-        <div className="container mx-auto flex justify-between items-center relative">
-          <Link href="/">
-            <Image src="/logo.png" alt="Hackersdemy Logo" width={300} height={300} />
-          </Link>
-          <div className="flex items-center space-x-4 text-white">
-            <ShinyButton onClick={() => router.push("/")}>Home</ShinyButton>
-            <ShinyButton onClick={() => router.push("/about")}>About Us</ShinyButton>
-            <ShinyButton onClick={() => router.push("/blog")}>Blog</ShinyButton>
-            <ShinyButton onClick={() => {
-              const footerElement = document.getElementById('footer');
-              if (footerElement) {
-                footerElement.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}>Contact Us</ShinyButton>
-          </div>
-        </div>
-      </section>
 
       <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl">
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
@@ -129,10 +111,7 @@ export default function AboutUs() {
           </div>
         </TabsContent>
       </Tabs>
-
-      <div id="footer">
-        <Footer />
-      </div>
+      
     </div>
   );
 }
