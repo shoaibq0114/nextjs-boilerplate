@@ -1,15 +1,20 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Footer from "@/components/Footer";
 import Image from "next/image";
+import { ShinyButton } from "@/components/magicui/shiny-button";
 // import { Boxes, BoxesCore } from "@/components/ui/background-boxes";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Highlight } from "@/components/ui/highlight-about";
+import Link from "next/link";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function AboutUs() {
-  
+  const router = useRouter();
   return (
-    <div className="min-h-screen bg-black text-white p-6 mx-auto">
+    <div className="min-h-screen text-white p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
+
 
       <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl">
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
