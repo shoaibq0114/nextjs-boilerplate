@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ShinyButton } from './magicui/shiny-button'
 import { useRouter } from 'next/navigation'
 
 export function Navbar() {
