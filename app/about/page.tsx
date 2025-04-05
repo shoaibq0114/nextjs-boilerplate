@@ -7,9 +7,9 @@ import { Highlight } from "@/components/ui/highlight-about";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function AboutUs() {
-  
   return (
-    <div className="min-h-screen bg-black text-white p-6 mx-auto">
+    <div className="min-h-screen text-white p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
+
 
       <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl">
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />

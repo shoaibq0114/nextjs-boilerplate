@@ -13,36 +13,8 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white bg-black">
-      {/* Navigation */}
-      {/* <nav className="flex justify-end p-6">
-        <div className="flex space-x-4">
-          <Link
-            href="/"
-            className="bg-[#d9d9d9] text-black px-4 py-2 rounded-full text-sm font-medium"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="bg-[#d9d9d9] text-black px-4 py-2 rounded-full text-sm font-medium"
-          >
-            About us
-          </Link>
-          <Link
-            href="/blog"
-            className="bg-[#d9d9d9] text-black px-4 py-2 rounded-full text-sm font-medium"
-          >
-            Blog
-          </Link>
-          <Link
-            href="/contact"
-            className="bg-[#d9d9d9] text-black px-4 py-2 rounded-full text-sm font-medium"
-          >
-            Contact us
-          </Link>
-        </div>
-      </nav> */}
+    <div className="min-h-screen text-white p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
+      
 
       {/* Hero Section */}
       <section className="py-16 px-6 md:px-12 max-w-6xl mx-auto items-center text-center">
@@ -84,7 +56,7 @@ export default function Home() {
           />
           <HighlightCard
             title="3"
-            description="Demo classes can be attended for free"
+            description="Organizations have unfulfilled Cybersecurity positions (2024)"
           />
         </div>
 
@@ -97,37 +69,7 @@ export default function Home() {
       </section>
 
       {/* About The Course */}
-      {/* <section className="py-8 px-6 md:px-12 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About The Course</h2>
-
-        <div className="space-y-6 text-[#d9d9d9]">
-          <p>
-            In today&apos;s world, where cyber threats are constantly evolving, ethical hackers play a crucial role in
-            safeguarding organizations&apos; digital assets. The Certified Ethical Hacking V13 course by EC-Council of
-            Hackersdemy equips you with the latest tools and techniques to identify, exploit, and protect systems from
-            vulnerabilities. Organizations hire Certified Ethical Hackers either on a contract or as full-time employees
-            to improve their security posture. Obtaining a CEH certification is often a baseline requirement for many
-            job roles. Ethical hacking involves the methodical practice of identifying, evaluating, testing, and
-            reporting vulnerabilities within an organization. Ethical hacking is a broad practice that covers various
-            technologies. You will learn to think like a hacker to understand their methods and defend against attacks
-            effectively.
-          </p>
-
-          <p>
-            By systematically applying CEH methodologies, ethical hackers can evaluate almost any application or
-            infrastructure, identify potential vulnerabilities, and provide remediation recommendations. With CEH v13,
-            Certified Ethical Hackers also use AI tools and techniques to enhance their ability to identify, exploit,
-            and secure vulnerabilities in systems and networks. By integrating AI into their skills, they automate
-            threat detection, predict security breaches, and respond swiftly to cyber incidents. Moreover, they also
-            have the knowledge to hack AI systems.
-          </p>
-
-          <p>
-            This course is ideal for aspiring cybersecurity professionals, IT administrators, and network specialists
-            who want to pursue a career in ethical hacking and penetration testing.
-          </p>
-        </div>
-      </section> */}
+      
       <Tabs defaultValue="about" className="pb-12 py-4 max-w-4xl mx-auto">
         <TabsList className=" bg-black flex justify-center">
           <TabsTrigger value="about" className="text-lg px-6 py-2">
@@ -184,6 +126,41 @@ export default function Home() {
                 This course is ideal for aspiring cybersecurity professionals,
                 IT administrators, and network specialists who want to pursue a
                 career in ethical hacking and penetration testing
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-300">
+                Currently, I work as a Senior Security Analyst at Symbiosys
+                Technologies in Visakhapatnam, actively engaging in the same
+                domain I teach. This allows me to provide students with
+                real-time insights into the tools, techniques, and methodologies
+                used in today&apos;s cybersecurity landscape. I believe in
+                teaching what I&apos;ve learned over the years from my own
+                practical experience in the industry, ensuring that students
+                gain not just theoretical knowledge but a deep understanding of
+                how to apply it in real-world scenarios.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-gray-300">
+                At Hackersdemy, I focus on breaking down complex cybersecurity
+                topics into simple, relatable concepts. My teaching includes
+                real-time examples and hands-on training with industry-relevant
+                tools, so students are not only well-prepared but confident in
+                their skills. Whether it&apos;s ethical hacking, SOC analysis,
+                penetration testing, or cyber forensics, I ensure my students
+                have a solid foundation to build successful careers in
+                cybersecurity.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-300">
+                Hackersdemy is an inclusive space for students from all
+                educational backgrounds. Whether you&apos;re a beginner or
+                looking to advance your skills, I&apos;m here to guide you every
+                step of the way. If you&apos;re ready to take the next step in
+                your cybersecurity journey, let&apos;s make it happen together!
               </p>
             </div>
           </div>
@@ -257,89 +234,84 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger className=" text-xl">Do I need programming knowledge for CEH?</AccordionTrigger>
+              <AccordionTrigger className=" text-xl">Is it styled?</AccordionTrigger>
               <AccordionContent className=" text-xl">
-              <span className="font-bold">No</span>. Programming knowledge is not required to get started with CEH. Although as you progress to higher fields and job roles in cybersecurity, 
-              understanding basic scripting languages like Python or Bash is beneficial to automate certain tasks. However, please note, this course
-              <span className="font-bold"> does not require</span> you to learn any programming language as it primarily focuses on tools and techniques rather than coding.
+                Yes. It comes with default styles that matches the other
+                components&apos; aesthetic.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger className=" text-xl">Who all is this CEH v13 course suitable for?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Anyone</span> with an interest in cybersecurity can join CEH v13, regardless of their background. At Hackersdemy, we’ve made the course 
-              accessible to learners from all domains of all age groups by covering essential fundamentals like Networking basics, Linux commands, 
-              and Virtualization prior to the course curriculum. Whether you&apos;re a high school student or a working professional from any field, this 
-              course is designed to help you build a strong foundation in ethical hacking from scratch with ease.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger className=" text-xl">How long does it take to complete CEH v13 training?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              The course spans <span className="font-bold">45 days</span> and is available in two flexible batch options. The weekday batch runs from Monday to Friday, 
-              with one-hour sessions each day. Alternatively, the weekend batch is designed for those with a busy schedule, offering 
-              two-hour classes exclusively on Saturdays and Sundays.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className=" text-xl">Will I get hands-on experience in this course?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Yes</span>. Our training at Hackersdemy provides a practical learning experience with real-world hacking techniques and security tools. 
-                You will work in a virtual lab environment to simulate cyberattacks and defenses using the same tools used in organizations with real-time 
-                scenarios. Hands-on practice ensures that you can apply theoretical knowledge effectively, which is what is <span className="font-bold">prioritized</span> at Hackersdemy.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-6">
-              <AccordionTrigger className=" text-xl">Is CEH certification worth it for career growth?</AccordionTrigger>
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-7">
-              <AccordionTrigger className=" text-xl">What job opportunities can I get after CEH?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-8">
-              <AccordionTrigger className=" text-xl">Will I be ready to write the CEH Certification Exam after completing this course from Hackersdemy?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-9">
-              <AccordionTrigger className=" text-xl">Along with the live classes, will I be getting the recordings and the course material as well?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-10">
-              <AccordionTrigger className=" text-xl">What other bonus content is provided with the course?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-11">
-              <AccordionTrigger className=" text-xl">What should I do if I miss a session and still have questions after watching the recordings?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-12">
-              <AccordionTrigger className=" text-xl">What is the CEH Exam pattern, duration and passing score?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-13">
-              <AccordionTrigger className=" text-xl">What is the cancellation and refund policy at Hackersdemy?</AccordionTrigger>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
+              <AccordionContent className=" text-xl">
+                Yes. It&apos;s animated by default, but you can disable it if
+                you prefer.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
+              <AccordionContent className=" text-xl">
+                Yes. It&apos;s animated by default, but you can disable it if
+                you prefer.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
+              <AccordionContent className=" text-xl">
+                Yes. It&apos;s animated by default, but you can disable it if
+                you prefer.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className=" text-xl">Is it animated?</AccordionTrigger>
               <AccordionContent className=" text-xl">
                 Yes. It&apos;s animated by default, but you can disable it if
                 you prefer.
