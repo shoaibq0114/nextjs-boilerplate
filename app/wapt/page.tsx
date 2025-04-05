@@ -13,7 +13,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white bg-black">
+    <div className="min-h-screen text-white p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
       {/* Navigation */}
       {/* <nav className="flex justify-end p-6">
         <div className="flex space-x-4">
