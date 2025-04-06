@@ -352,17 +352,3 @@ export default function Home() {
   );
 }
 
-function HighlightCard({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="bg-[#1a1a24] rounded-3xl p-8 flex flex-col items-center text-center">
-      <h3 className="text-2xl font-bold mb-2">{title}</h3>
-      <p className="text-[#aca8de]">{description}</p>
-    </div>
-  );
-}
