@@ -21,26 +21,26 @@ export function Navbar() {
             </Link>
         </div>
         <div className="flex items-center space-x-4">
-        <button onClick={() => router.push("/")} className="p-[3px] relative">
+        <button onClick={() => router.push("/")} className="p-[2px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-          <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+          <div className="px-8 py-2  bg-black rounded-[8px]  relative group transition duration-200 text-white hover:bg-transparent">
           Home
           </div>
           </button>
 
-          <button onClick={() => router.push("/about")} className="p-[3px] relative">
+          <button onClick={() => router.push("/about")} className="p-[2px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-          <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+          <div className="px-8 py-2  bg-black rounded-[8px]  relative group transition duration-200 text-white hover:bg-transparent">
           About Us
           </div>
           </button>
 
-          <div className="relative group inline-block p-[3px]">
+          <div className="relative group inline-block p-[2px]">
           {/* Glowing Border */}
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg z-0" />
 
             {/* Button */}
-            <div className="px-8 py-2 bg-black rounded-[6px] relative z-10 text-white transition duration-200 hover:bg-transparent cursor-pointer flex items-center gap-2">
+            <div className="px-8 py-2 bg-black rounded-[8px] relative z-10 text-white transition duration-200 hover:bg-transparent cursor-pointer flex items-center gap-2">
               Courses
               <svg
                 className="w-4 h-4 fill-white/60"
@@ -73,16 +73,16 @@ export function Navbar() {
               </div>
             </div>
           </div>
-          <button onClick={() => router.push("/blog")} className="p-[3px] relative">
+          <button onClick={() => router.push("/blog")} className="p-[2px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-          <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+          <div className="px-8 py-2  bg-black rounded-[8px]  relative group transition duration-200 text-white hover:bg-transparent">
           Blog
           </div>
           </button>
           
-          <button onClick={() => document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' })} className="p-[3px] relative">
+          <button onClick={() => document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' })} className="p-[2px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-          <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+          <div className="px-8 py-2  bg-black rounded-[8px]  relative group transition duration-200 text-white hover:bg-transparent">
           Contact Us
           </div>
           </button>
