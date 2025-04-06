@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { DownloadIcon } from "@/components/ui/download";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { GlowingEffect } from "@/components/magicui/glowing-effect";
 import {
   Accordion,
   AccordionContent,
@@ -43,50 +44,62 @@ export default function Home() {
 
 
       {/* Core Highlights */}
+
+
       <section className="py-16 px-6 md:px-12 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Core Highlights
-        </h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        Core Highlights
+      </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <HighlightCard
-            title="35+"
-            description="Hours of Live training content"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: "35+", description: "Hours of Live training content" },
+          { title: "70:30", description: "Practical to Theory Ratio" },
+          { title: "Resume Building", description: "Service provided for free after course" },
+          { title: "1 Year", description: "Access to Recorded Sessions" },
+          { title: "2 Installments", description: "Payments accepted for students" },
+          { title: "3", description: "Organizations have unfulfilled Cybersecurity positions (2024)" },
+        ].map((item, idx) => (
+          <div key={idx} className="relative p-[1px] rounded-2xl h-full">
+            <GlowingEffect
+              spread={40}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+            />
+            <div className="relative bg-zinc-900 text-white p-6 rounded-2xl h-full flex flex-col justify-center items-center gap-4 text-center min-h-[180px]">
+              <h3 className="text-3xl font-semibold">{item.title}</h3>
+              <p className="text-base text-zinc-300">{item.description}</p>
+            </div>
+          </div>
+        ))}
+
+        {/* Spacer to push 50+ card to center */}
+        <div className="hidden lg:block" />
+        
+        <div className="relative p-[1px] rounded-2xl h-full">
+          <GlowingEffect
+            spread={40}
+            glow={true}
+            disabled={false}
+            proximity={64}
+            inactiveZone={0.01}
           />
-          <HighlightCard
-            title="70:30"
-            description="Practical to Theory Ratio"
-          />
-          <HighlightCard
-            title="Resume Building"
-            description="Service provided for free after course"
-          />
-          <HighlightCard
-            title="1 Year"
-            description="Access to Recorded Sessions"
-          />
-          <HighlightCard
-            title="2 Installments"
-            description="Payments accepted for students"
-          />
-          <HighlightCard
-            title="3"
-            description="Organizations have unfulfilled Cybersecurity positions (2024)"
-          />
+          <div className="relative bg-zinc-900 text-white p-6 rounded-2xl h-full flex flex-col justify-center items-center gap-4 text-center min-h-[180px]">
+            <h3 className="text-3xl font-semibold">50+</h3>
+            <p className="text-base text-zinc-300">Hours of Bonus content provided</p>
+          </div>
         </div>
 
-        <div className="flex justify-center mt-6">
-          <HighlightCard
-            title="50+"
-            description="Hours of Bonus content provided"
-          />
-        </div>
-      </section>
+        <div className="hidden lg:block" />
+      </div>
+    </section>
 
       {/* About The Course */}
       
       <Tabs defaultValue="about" className="pb-12 py-4 max-w-4xl mx-auto">
-        <TabsList className=" bg-black flex justify-center">
+      <TabsList style={{ backgroundColor: 'rgba(5, 6, 17, 1)' }} className="flex justify-center">
           <TabsTrigger value="about" className="text-lg px-6 py-2">
             About the Course
           </TabsTrigger>
@@ -98,7 +111,7 @@ export default function Home() {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="about" className="space-y-4 mt-6">
+        <TabsContent value="about" className="space-y-4 mt-12">
           <div className="grid md:grid-cols-1 gap-8 text-xl">
             <h2 className="text-2xl font-semibold">About the course</h2>
 
@@ -181,7 +194,7 @@ export default function Home() {
           </div>
         </TabsContent>
 
-        <TabsContent value="curriculum" className="space-y-4 mt-6">
+        <TabsContent value="curriculum" className="space-y-4 mt-12">
           <div className=" text-xl">
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold">Curriculum</h2>
@@ -240,7 +253,7 @@ export default function Home() {
           </div>
         </TabsContent>
 
-        <TabsContent value="faq" className="space-y-4 mt-6">
+        <TabsContent value="faq" className="space-y-4 mt-12">
           <Accordion type="single" collapsible className="w-full text-xl mb-12">
             <AccordionItem value="item-1">
               <AccordionTrigger className=" text-xl">Is CEH a beginner-friendly course?</AccordionTrigger>
