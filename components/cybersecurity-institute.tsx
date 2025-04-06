@@ -194,7 +194,7 @@ export function CybersecurityInstituteComponent() {
         </div>
       </section>
 {/* Testimonials */}
-      <section>
+      <section id = "testimonials" className="py-16">
             <Testimonials />
 
       </section>
