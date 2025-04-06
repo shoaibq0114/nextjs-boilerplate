@@ -4,6 +4,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { DownloadIcon } from "@/components/ui/download";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import {
   Accordion,
   AccordionContent,
@@ -17,15 +18,29 @@ export default function Home() {
       
 
       {/* Hero Section */}
-      <section className="py-16 px-6 md:px-12 max-w-6xl mx-auto items-center text-center">
+      
+      <section className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl">
+      {/* Radial mask overlay */}
+      <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" ></div>
+      <FlickeringGrid
+        className="absolute inset-0 z-0 size-full"
+        squareSize={10}
+        gridGap={4}
+        color="#006D32"
+        maxOpacity={0.5}
+        flickerChance={0.1}
+      />
+      {/* Foreground content */}
+      <div className="relative z-30">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           Certified Ethical Hacking V13
         </h1>
-        <p className="text-lg md:text-xl">
-          Launch Your Cybersecurity Journey with the Most Recognized
-          Certification
+        <p className="text-lg md:text-xl text-center mx-auto">
+          Launch Your Cybersecurity Journey with the Most Recognized Certification
         </p>
-      </section>
+      </div>
+    </section>
+
 
       {/* Core Highlights */}
       <section className="py-16 px-6 md:px-12 max-w-6xl mx-auto">
