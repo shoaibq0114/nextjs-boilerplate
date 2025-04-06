@@ -30,7 +30,7 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.170.0",
-    "sonner": "^1.4.5"
+    "sonner": "^2.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",
