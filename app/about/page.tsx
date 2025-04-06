@@ -4,24 +4,18 @@ import Image from "next/image";
 // import { Boxes, BoxesCore } from "@/components/ui/background-boxes";
 import { cn } from "@/lib/utils";
 import { Highlight } from "@/components/ui/highlight-about";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { Boxes } from "@/components/magicui/background-boxes";
 
 export default function AboutUs() {
+
   return (
     <div className="min-h-screen text-white p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
 
 
-      <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl">
+    <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
- 
-      <FlickeringGrid
-        className="absolute inset-0 z-0 size-full"
-        squareSize={10}
-        gridGap={4}
-        color="#006D32"
-        maxOpacity={0.5}
-        flickerChance={0.1}
-      />
+
+      <Boxes />
       <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
       In a world driven by technology, cybersecurity isn&apos;t optional - <Highlight>it&apos;s essential</Highlight>.
       </h1>
@@ -30,8 +24,8 @@ export default function AboutUs() {
       </p>
     </div>
 
-      <Tabs defaultValue="mission" className="mb-12 py-4 max-w-4xl mx-auto">
-        <TabsList className="bg-black flex justify-center">
+      <Tabs defaultValue="mission" className="mb-12 py-8 max-w-4xl mx-auto">
+      <TabsList style={{ backgroundColor: 'rgba(5, 6, 17, 1)' }} className="flex justify-center">
           <TabsTrigger value="mission" className="text-lg px-6 py-2">Our mission</TabsTrigger>
           <TabsTrigger value="who" className="text-lg px-6 py-2">Who we are</TabsTrigger>
           <TabsTrigger value="why" className="text-lg px-6 py-2">Why Hackersdemy</TabsTrigger>
@@ -69,15 +63,15 @@ export default function AboutUs() {
                 Our mission? To deliver exceptional cybersecurity education, combining hands-on training with expert knowledge. Whether you&apos;re starting from scratch or refining your skills, we prepare you to defend networks, applications, and organizations against the most advanced cyber threats. Regardless of their background, we ensure every student masters essential concepts with ease. Unlike traditional theory-heavy approaches, our focus is on practical, hands-on training using industry-relevant tools and evolving techniques. Our mission is to empower students with the skills and confidence needed to excel in the ever-changing world of cybersecurity.
               </p>
             </div>
-            <Image src="/placeholder.jpg" alt="image here" width={200} height={200} />
-            <Image src="/placeholder.jpg" alt="image here" width={200} height={200} />
+            <Image src="/about-us-pic1.jpg" alt="image here" width={500} height={200} className="mt-10"/>
+            <Image src="/about-us-pic2.jpg" alt="image here" width={500} height={200} />
             <p>
               At Hackersdemy, we empower you to achieve the tech career you deserve with top-tier certifications, courses, and expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance. Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to prepare you for the ever-evolving cybersecurity challenges across all domains.
             </p>
             <p>
               As cyber threats become increasingly sophisticated, there is a growing demand for skilled professionals to protect organizations from potential attacks. At Hackersdemy, we provide courses that give you industry-ready skills, helping you to level up your cybersecurity knowledge and open the doors to a wide range of job opportunities within the ever-evolving world of cybersecurity.
             </p>
-            <Image src="/placeholder.jpg" alt="image here" width={200} height={200} />
+            <Image src="/about-us-pic3.jpg" alt="image here" width={500} height={200} />
           </div>
         </TabsContent>
 
