@@ -10,7 +10,7 @@ import {
   IconBrandX,
   IconMail,
 } from '@tabler/icons-react'
-import React from 'react'
+import React, { useState } from 'react'
 import { toast } from 'sonner' // ensure you have 'sonner' installed
 
 const Footer = () => {
@@ -79,19 +79,24 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
-            <nav className="space-y-2">
-              {['About Us', 'Why choose us?', 'Trending Courses'].map((item) => (
-                <Link
-                  key={item}
-                  href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="block text-gray-300 hover:text-white"
-                >
-                  {item}
-                </Link>
-              ))}
-            </nav>
-          </div>
+        <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
+        <nav className="space-y-2">
+          {[
+            { label: 'About Us', href: '/about' },
+            { label: 'Why choose us?', href: '/about' },
+            { label: 'Trending Courses', href: '/#courses' },
+            { label: 'Student Testimonials', href: '/#testimonials' }
+          ].map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              className="block text-gray-300 hover:text-white"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </div>                
 
           {/* Request a Demo */}
           <div>
