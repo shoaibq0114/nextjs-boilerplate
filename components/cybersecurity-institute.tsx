@@ -5,13 +5,15 @@ import {Tomorrow} from "next/font/google"
 import Image from 'next/image'
 import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
-import { AnimatePresence, motion } from "framer-motion";
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
-  import React, { useEffect } from 'react'
-import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect'
+import { AnimatePresence, motion } from "framer-motion"
+import React, { useEffect } from 'react'
 import { Testimonials } from './Testimonials'
 import { useRouter } from 'next/navigation'
 import { TypingAnimation } from "./ui/typing-animation-hero"
+
+import { BorderBeam } from "./magicui/border-beam";
+import { CanvasRevealEffect } from "./ui/canvas-reveal-effect";
+import { TypewriterEffectSmooth } from './ui/typewriter-effect'
 
 const tomorrow = Tomorrow(
  {
@@ -71,22 +73,25 @@ export function CybersecurityInstituteComponent() {
               <BackgroundBeams />
 
       {/* Hero Section */}
-      <section className="py-20 relative">
-        
-        <div className="container mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center"><FlipWords words={["Secure", "Respond", "Mitigate", "Harden", "Lead"]} duration={1500} /> <br /></h1>
-          <h2 className="text-center text-2xl md:text-4xl mb-8">Turn Your Passion for Cybersecurity into a Professional Career</h2>
-            <h1 className={`justify-start text-4xl md:text-6xl pt-20 mb-8 max-w-[50vw] ${tomorrow.className}`} style={{ height: '18rem' }}><TypingAnimation>Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</TypingAnimation></h1>
-          {/* <Button className="">Explore Courses ➾</Button> */}
-
+      <section className="py-12 md:py-20 relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-center">
+            <FlipWords words={["Secure", "Respond", "Mitigate", "Harden", "Lead"]} duration={1500} />
+          </h1>
+          <h2 className="text-xl md:text-3xl lg:text-4xl mb-6 md:mb-8 text-center">
+            Turn Your Passion for Cybersecurity into a Professional Career
+          </h2>
+          <h1 className={`text-2xl md:text-4xl lg:text-6xl pt-12 md:pt-20 mb-6 md:mb-8 w-full md:max-w-[50vw] ${tomorrow.className}`} style={{ height: 'auto', minHeight: '12rem' }}>
+            <TypingAnimation>Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.</TypingAnimation>
+          </h1>
         </div>
       </section>
 
       {/* Statistics Section */}
-      <section className="">
-        <div className="container mx-auto">
-          <h2 className="text-5xl font-bold mb-10 text-center">Cyber Insights</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-7">
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-10 text-center">Cyber Insights</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-7">
             {[
               { label: 'Worldwide estimated annual cost of cybercrime by 2025.', value: '$10.5 Trillion' },
               { label: 'Organizations hit worldwide by ransomware attacks (2024)', value: '59%' },
@@ -95,10 +100,10 @@ export function CybersecurityInstituteComponent() {
               { label: 'Surge in cyberattacks in India alone in Q2 (2024)', value: '115%' },
               { label: 'Organizations have unfulfilled Cybersecurity positions (2024)', value: '71%' },
             ].map((stat, index) => (
-              <div key={index} className="p-4 rounded-lg shadow-md text-center" >
-                <p className="text-2xl font-bold">{stat.value}</p>
-               {/* {<HyperText>{stat.value}</HyperText>} */}
-                <p className="text-lg">{stat.label}</p>
+              <div key={index} className="p-4 md:p-6 rounded-lg shadow-md text-center relative">
+                <BorderBeam duration={8} size={100} />
+                <p className="text-xl md:text-2xl font-bold mb-2">{stat.value}</p>
+                <p className="text-base md:text-lg">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -106,97 +111,87 @@ export function CybersecurityInstituteComponent() {
       </section>
 
       {/* Network Security Section */}
-      <section className="py-16">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="text-center mb-8 md:mb-0">
-              <p className="mb-1 text-2xl w-full">As cyber threats become increasingly sophisticated, there is a growing demand for skilled professionals to protect organizations from potential attacks. At Hackersdemy, we provide courses that give you industry-ready skills, helping you to level up your cybersecurity knowledge and open the doors to a wide range of job opportunities within the ever-evolving world of cybersecurity.</p>
-              {/* <Button className="">Explore Courses→</Button> */}
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="text-center md:text-left w-full md:w-2/3">
+              <p className="text-lg md:text-2xl">
+                As cyber threats become increasingly sophisticated, there is a growing demand for skilled professionals to protect organizations from potential attacks. At Hackersdemy, we provide courses that give you industry-ready skills, helping you to level up your cybersecurity knowledge and open the doors to a wide range of job opportunities within the ever-evolving world of cybersecurity.
+              </p>
             </div>
-            {/* <div className="md:w-1/2 grid grid-cols-3 gap-4">
-              {['Better Mortgage', 'Salesforce', 'Envision', 'ADT', 'MICHELIN', 'Resolution Life'].map((company, index) => (
-                <div key={index} className="p-4 rounded-lg flex items-center justify-center">
-                  <p className="text-sm font-bold">{company}</p>
-                </div>
-              ))}
-            </div> */}
           </div>
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16" id="courses">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Courses Offered</h2>
-          <div className="">
-            <div className="py-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
-              <div onClick={handleCEHClick}>
+      <section className="py-12 md:py-16" id="courses">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Courses Offered</h2>
+          <div className="py-12 md:py-20">
+            <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-6 md:gap-8 mx-auto">
+              <div onClick={handleCEHClick} className="w-full max-w-sm">
                 <Card title="Certified Ethical Hacking" icon={<Image src="/CEH.png" alt="CEH" width={600} height={600} />} text="Master the skills to think and act like a hacker to protect systems from cyber threats">
-                 {/*TODO: change the shades for card colours (CEH)*/}
                   <CanvasRevealEffect
                     animationSpeed={3}
                     containerClassName="bg-[#BC3232]"
-                    colors={[
-                      [240, 107, 107]
-                    ]} 
+                    colors={[[240, 107, 107]]}
                     dotSize={8}
                   />
                 </Card>
               </div>
-              <div onClick={handleWAPTClick}>
+              <div onClick={handleWAPTClick} className="w-full max-w-sm">
                 <Card title="Web Application Penetration Testing" icon={<Image src="/WAPT.png" alt="WAPT" width={600} height={600} />} text="Uncover vulnerabilities in web apps and secure them from real-world attacks.">
-                  
                   <CanvasRevealEffect
                     animationSpeed={3}
                     containerClassName="bg-sky-600"
                   />
                 </Card>
               </div>
-            <div onClick={handleSOCClick}>
+              <div onClick={handleSOCClick} className="w-full max-w-sm">
                 <Card title="SOC" icon={<Image src="/SOC.png" alt="CEH" width={600} height={600} />} text="Detect, analyze, and respond to cyber threats in real-time as a SOC expert.">
                   <CanvasRevealEffect
                     animationSpeed={3}
                     containerClassName="bg-emerald-900"
                   />
-                  {/* Radial gradient for the cute fade */}
                   <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
                 </Card>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* diff Section */}
-      <section className="py-16">
-        <div className="container mx-auto">
-        <div className="flex flex-col items-center justify-center">
-        <TypewriterEffectSmooth words={typewriter_words} />
-        </div>
-            <p className='w-full text-2xl pb-10'>At Hackersdemy. we empower you to achieve the tech career you deserve with top-tier courses, certifications and
-              expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance.
-              Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to
-              prepare you for the ever-evolving cybersecurity challenges across all domains.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center mb-8">
+            <TypewriterEffectSmooth words={typewriter_words} />
+          </div>
+          <p className='text-lg md:text-2xl pb-8 md:pb-10 text-center md:text-left'>
+            At Hackersdemy. we empower you to achieve the tech career you deserve with top-tier courses, certifications and
+            expert knowledge by providing immersive training with industry-standard applications ensuring real-world relevance.
+            Our courses in Ethical Hacking, Advanced Penetration Testing, Cyber Forensics and SOC Analysis are designed to
+            prepare you for the ever-evolving cybersecurity challenges across all domains.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { label: 'Experience delivering cybersecurity trainings', value: '7+ years' },
               { label: "Countries' students recognize us globally", value: '12+' },
               { label: 'Students trained and counting', value: '4000+' },
               { label: 'Companies have employed our students worldwide', value: '26+' },
             ].map((stat, index) => (
-              <div key={index} className="p-4 rounded-lg shadow-md text-center">
-                <p className="text-3xl font-bold">{stat.value}</p>
-                <p className="text-lg">{stat.label}</p>
+              <div key={index} className="p-4 md:p-6 rounded-lg shadow-md text-center">
+                <p className="text-2xl md:text-3xl font-bold mb-2">{stat.value}</p>
+                <p className="text-base md:text-lg">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-{/* Testimonials */}
-      <section id = "testimonials" className="py-16">
-            <Testimonials />
 
+      {/* Testimonials */}
+      <section id="testimonials" className="py-12 md:py-16">
+        <Testimonials />
       </section>
 
 
