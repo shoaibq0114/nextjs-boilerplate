@@ -94,11 +94,19 @@ const Footer = () => {
 
             {/* Social Icons below Contact Us */}
             <div className="mt-4 sm:mt-6">
-              <div className="flex items-center justify-start space-x-3 sm:space-x-4">
-                <FloatingDock
-                  mobileClassName="translate-y-0"
-                  items={socialLinks}
-                />
+              <div className="flex flex-row items-center justify-start space-x-3 sm:space-x-4">
+                {socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    onClick={link.onClick}
+                    className="flex items-center justify-center p-2 rounded-full hover:bg-gray-800 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
