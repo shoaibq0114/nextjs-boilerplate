@@ -49,7 +49,8 @@ const Footer = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -70,6 +71,8 @@ const Footer = () => {
     const result = await response.json();
     if (result.success) {
       console.log("Form submitted successfully", result);
+      toast.success('Form submitted successfully!')
+      form.reset(); // Clear all form fields
     } else {
       console.error("Form submission failed", result);
     }
