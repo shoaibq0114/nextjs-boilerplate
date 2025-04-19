@@ -49,7 +49,8 @@ const Footer = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -70,6 +71,8 @@ const Footer = () => {
     const result = await response.json();
     if (result.success) {
       console.log("Form submitted successfully", result);
+      toast.success('Form submitted successfully!')
+      form.reset(); // Clear all form fields
     } else {
       console.error("Form submission failed", result);
     }
@@ -94,11 +97,19 @@ const Footer = () => {
 
             {/* Social Icons below Contact Us */}
             <div className="mt-4 sm:mt-6">
-              <div className="flex items-center justify-start space-x-3 sm:space-x-4">
-                <FloatingDock
-                  mobileClassName="translate-y-0"
-                  items={socialLinks}
-                />
+              <div className="flex flex-row items-center justify-start space-x-3 sm:space-x-4">
+                {socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    onClick={link.onClick}
+                    className="flex items-center justify-center p-2 rounded-full hover:bg-gray-800 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
