@@ -4,18 +4,19 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import GlowingInput from "./ui/GlowingInput"
 
-import { FloatingDock } from '@/components/magicui/floating-dock'
+//import { FloatingDock } from '@/components/magicui/floating-dock'
 import {
   IconBrandInstagram,
   IconBrandWhatsapp,
   IconBrandX,
   IconMail,
 } from '@tabler/icons-react'
-import React from 'react'
-import { toast } from 'sonner' // ensure you have 'sonner' installed
+import React, { useRef } from 'react'
+import { toast } from 'sonner'
 
 const Footer = () => {
   const date = new Date()
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('shoaib@hackersdemy.com')
@@ -45,13 +46,13 @@ const Footer = () => {
       href: 'https://twitter.com/your_twitter',
     },
   ]
-  
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -66,15 +67,14 @@ const Footer = () => {
         phone: formData.get("phone"),
         message: formData.get("message"),
       }),
-    });
-  
-    const result = await response.json();
+    })
+
+    const result = await response.json()
     if (result.success) {
-      console.log("Form submitted successfully", result);
       toast.success('Form submitted successfully!')
-      form.reset(); // Clear all form fields
+      form.reset()
     } else {
-      console.error("Form submission failed", result);
+      toast.error('Form submission failed. Please try again.')
     }
   }
 
@@ -82,6 +82,7 @@ const Footer = () => {
     <footer className="bg-black text-white border-t border-gray-700 py-6 sm:py-8" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          
           {/* Contact Us */}
           <div className="space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold">Contact Us</h3>
@@ -94,8 +95,6 @@ const Footer = () => {
               <li>Phone no: +91-9849984778</li>
               <li>Email : shoaib@hackersdemy.com</li>
             </ul>
-
-            {/* Social Icons below Contact Us */}
             <div className="mt-4 sm:mt-6">
               <div className="flex flex-row items-center justify-start space-x-3 sm:space-x-4">
                 {socialLinks.map((link, index) => (
@@ -138,10 +137,10 @@ const Footer = () => {
           {/* Request a Demo */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <h3 className="text-xl sm:text-2xl font-bold">Request a demo</h3>
-            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+            <form onSubmit={handleSubmit} ref={formRef} className="space-y-3 sm:space-y-4" noValidate>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <GlowingInput id="firstname" name="firstname" placeholder="First Name" type="text" required />
-              <GlowingInput id="lastname" name="lastname" placeholder="Last Name" type="text" required />
+                <GlowingInput id="firstname" name="firstname" placeholder="First Name" type="text" required />
+                <GlowingInput id="lastname" name="lastname" placeholder="Last Name" type="text" required />
               </div>
               <GlowingInput name="email" type="email" placeholder="Email" required />
               <GlowingInput name="phone" type="text" placeholder="Phone Number" required />
@@ -157,10 +156,6 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
-
-export default Footer
   )
 }
 
