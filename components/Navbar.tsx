@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { ChevronDown, ChevronUp } from 'lucide-react' // ✅ Icon import
 
 export function Navbar() {
   const router = useRouter()
@@ -45,13 +46,12 @@ export function Navbar() {
               </button>
             ))}
 
+            {/* Desktop Courses Dropdown */}
             <div className="relative group inline-block p-[2px]">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg z-0" />
               <div className="px-4 xl:px-8 py-2 bg-black rounded-[8px] relative z-10 text-white flex items-center gap-2 text-sm xl:text-base cursor-pointer">
                 Courses
-                <svg className="w-3 h-3 xl:w-4 xl:h-4 fill-white/60" viewBox="0 0 20 20">
-                  <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.937a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                </svg>
+                <ChevronDown className="w-4 h-4 text-white/60" />
               </div>
 
               <div className="absolute left-0 top-full hidden group-hover:block z-30 min-w-[12rem]">
@@ -74,7 +74,7 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
             <button onClick={toggleMenu} className="text-white focus:outline-none">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden mt-4 space-y-4">
             {[
@@ -108,7 +108,7 @@ export function Navbar() {
               </div>
             ))}
 
-            {/* Courses Dropdown */}
+            {/* Mobile Courses Dropdown */}
             <div className="p-[2px] relative">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
               <div
@@ -117,13 +117,11 @@ export function Navbar() {
               >
                 <div className="flex justify-between items-center">
                   <span className="w-full text-center">Courses</span>
-                  <svg
-                    className="w-4 h-4 fill-white/60 transition-transform"
-                    style={{ transform: isCoursesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.937a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                  </svg>
+                  {isCoursesOpen ? (
+                    <ChevronUp className="w-4 h-4 text-white/60" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-white/60" />
+                  )}
                 </div>
 
                 {isCoursesOpen && (

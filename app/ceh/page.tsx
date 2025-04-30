@@ -99,8 +99,9 @@ export default function Home() {
 
       {/* About The Course */}
       
-      <Tabs defaultValue="about" className="pb-12 py-4 max-w-4xl mx-auto px-4 md:px-0">
-      <TabsList style={{ backgroundColor: 'rgba(5, 6, 17, 1)' }} className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mb-8 md:mb-12">
+      <Tabs defaultValue="about" className="pb-12 py-4 max-w-4xl mx-auto px-8 md:px-0">
+      <TabsList style={{ backgroundColor: 'rgba(5, 6, 17, 1)' }} className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mt-6 mb-24">
+
           <TabsTrigger value="about" className="text-base sm:text-lg px-6 sm:px-8 py-3 w-full sm:w-auto rounded-lg">
             About the Course
           </TabsTrigger>
@@ -112,9 +113,9 @@ export default function Home() {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="about" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
+        <TabsContent value="about" className="space-y-6 md:space-y-8 mt-8">
           <div className="grid md:grid-cols-1 gap-6 md:gap-8 text-base md:text-xl">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">About the course</h2>
+            <h2 className="text-xl md:text-2xl font-semibold md:mb-6">About the course</h2>
 
             <div className="space-y-4">
               <p className="text-gray-300 leading-relaxed">
@@ -168,7 +169,7 @@ export default function Home() {
           </div>
         </TabsContent>
 
-        <TabsContent value="curriculum" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
+        <TabsContent value="curriculum" className="space-y-6 md:space-y-8 mt-8">
           <div className="text-base md:text-xl">
             <div className="space-y-6">
               <h2 className="text-xl md:text-xl font-semibold mb-4 md:mb-6">Curriculum</h2>
@@ -210,7 +211,7 @@ export default function Home() {
           </div>
         </TabsContent>
 
-        <TabsContent value="faq" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
+        <TabsContent value="faq" className="space-y-6 md:space-y-8 mt-8">
           <Accordion type="single" collapsible className="w-full text-base md:text-xl mb-8 md:mb-12 space-y-4">
             <AccordionItem value="item-1" className="border rounded-lg px-4">
               <AccordionTrigger className="text-base md:text-xl py-4">Is CEH a beginner-friendly course?</AccordionTrigger>
