@@ -15,12 +15,12 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
+    <div className="min-h-screen text-white p-4 md:p-6 mx-auto" style={{ backgroundColor: 'rgba(5,6,17,1)' }}>
       
 
       {/* Hero Section */}
       
-      <section className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl">
+      <section className="h-auto md:h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-3xl py-12 md:py-0">
       {/* Radial mask overlay */}
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" ></div>
       <FlickeringGrid
@@ -33,11 +33,11 @@ export default function Home() {
         flickerChance={0.1}
       />
       {/* Foreground content */}
-      <div className="relative z-30">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+      <div className="relative z-30 px-4 md:px-0">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-center leading-tight">
           Certified Ethical Hacking V13
         </h1>
-        <p className="text-lg md:text-xl text-center mx-auto">
+        <p className="text-base md:text-xl text-center mx-auto max-w-2xl leading-relaxed">
           Launch Your Cybersecurity Journey with the Most Recognized Certification
         </p>
       </div>
@@ -47,12 +47,12 @@ export default function Home() {
       {/* Core Highlights */}
 
 
-      <section className="py-16 px-6 md:px-12 max-w-6xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+      <section className="py-12 md:py-16 px-4 md:px-12 max-w-6xl mx-auto">
+      <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16 leading-tight">
         Core Highlights
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {[
           { title: "35+", description: "Hours of Live training content" },
           { title: "70:30", description: "Practical to Theory Ratio" },
@@ -99,48 +99,39 @@ export default function Home() {
 
       {/* About The Course */}
       
-      <Tabs defaultValue="about" className="pb-12 py-4 max-w-4xl mx-auto">
-      <TabsList style={{ backgroundColor: 'rgba(5, 6, 17, 1)' }} className="flex justify-center">
-          <TabsTrigger value="about" className="text-lg px-6 py-2">
+      <Tabs defaultValue="about" className="pb-12 py-4 max-w-4xl mx-auto px-4 md:px-0">
+      <TabsList style={{ backgroundColor: 'rgba(5, 6, 17, 1)' }} className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mb-8 md:mb-12">
+          <TabsTrigger value="about" className="text-base sm:text-lg px-6 sm:px-8 py-3 w-full sm:w-auto rounded-lg">
             About the Course
           </TabsTrigger>
-          <TabsTrigger value="curriculum" className="text-lg px-6 py-2">
+          <TabsTrigger value="curriculum" className="text-base sm:text-lg px-6 sm:px-8 py-3 w-full sm:w-auto rounded-lg">
             Curriculum
           </TabsTrigger>
-          <TabsTrigger value="faq" className="text-lg px-6 py-2">
+          <TabsTrigger value="faq" className="text-base sm:text-lg px-6 sm:px-8 py-3 w-full sm:w-auto rounded-lg">
             FAQs
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="about" className="space-y-4 mt-12">
-          <div className="grid md:grid-cols-1 gap-8 text-xl">
-            <h2 className="text-2xl font-semibold">About the course</h2>
+        <TabsContent value="about" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
+          <div className="grid md:grid-cols-1 gap-6 md:gap-8 text-base md:text-xl">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">About the course</h2>
 
             <div className="space-y-4">
-              <p className="text-gray-300">
-                In today&apos;s world, where cyber threats are constantly
-                evolving, ethical hackers play a crucial role in safeguarding
-                organizations&apos; digital assets. The Certified Ethical
-                Hacking V13 course by EC-Council at Hackersdemy equips you with
-                the latest tools and techniques to identify, exploit, and
-                protect systems from vulnerabilities. Organizations hire
-                Certified Ethical Hackers either on a contract or as full-time
-                employees to improve their security posture. Obtaining a CEH
-                certification is often a baseline requirement for many job
-                roles. Ethical hacking involves the methodical practice of
-                identifying, evaluating, testing, and reporting vulnerabilities
-                within an organization. It is a broad practice that
-                covers various technologies. You will learn to think like a
-                hacker to understand their methods and defend against attacks
-                effectively.
+              <p className="text-gray-300 leading-relaxed">
+                In today&apos;s rapidly evolving cyber landscape, Ethical Hackers 
+                are essential in defending organizations against digital threats. 
+                The Certified Ethical Hacking V13 course by EC-Council at Hackersdemy 
+                equips you with the latest tools and techniques to identify, exploit, 
+                and protect systems from vulnerabilities. Whether working full-time 
+                or on contract, CEH-certified professionals are in high demand, with 
+                the certification often serving as a baseline requirement for roles in 
+                cybersecurity. You&apos;ll learn to think like a hacker, methodically assess 
+                systems, and report weaknesses across a wide range of technologies.
               </p>
             </div>
             <div className="space-y-4">
-              <p className="text-gray-300">
-                By systematically applying CEH methodologies, ethical hackers
-                can evaluate almost any application or infrastructure, identify
-                potential vulnerabilities, and provide remediation
-                recommendations. With CEH v13, Certified Ethical Hackers also
+              <p className="text-gray-300 leading-relaxed">
+                With CEH v13, Certified Ethical Hackers also
                 use AI tools and techniques to enhance their ability to
                 identify, exploit, and secure vulnerabilities in systems and
                 networks. By integrating AI into their skills, they automate
@@ -151,40 +142,22 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <p className="text-gray-300">
+              <p className="text-gray-300 leading-relaxed">
                 This course is ideal for aspiring cybersecurity professionals,
                 IT administrators, and network specialists who want to pursue a
-                career in ethical hacking and penetration testing
-              </p>
-            </div>
-            {/* <div className="space-y-4">
-              <p className="text-gray-300">
-                Currently, I work as a Senior Security Analyst at Symbiosys
-                Technologies in Visakhapatnam, actively engaging in the same
-                domain I teach. This allows me to provide students with
-                real-time insights into the tools, techniques, and methodologies
-                used in today&apos;s cybersecurity landscape. I believe in
-                teaching what I&apos;ve learned over the years from my own
-                practical experience in the industry, ensuring that students
-                gain not just theoretical knowledge but a deep understanding of
-                how to apply it in real-world scenarios.
-              </p>
-            </div> */}
-
-            <div className="space-y-4">
-              <p className="text-gray-300">
-                At Hackersdemy, we focus on breaking down complex cybersecurity
-                topics into simple, relatable concepts. Our teaching includes
-                real-time examples and hands-on training with industry-relevant
-                tools, so students are not only well-prepared but confident in
-                their skills. Whether it&apos;s ethical hacking, SOC analysis,
-                penetration testing, or cyber forensics, we ensure students
-                have a solid foundation to build successful career in
+                career in ethical hacking and penetration testing. At Hackersdemy, 
+                we focus on breaking down complex cybersecurity topics into simple, 
+                relatable concepts. Our teaching includes real-time examples
+                and hands-on training with industry-relevant tools, so students are not 
+                only well-prepared but confident in their skills. Whether it&apos;s 
+                ethical hacking, SOC analysis, penetration testing, or cyber forensics, 
+                we ensure students have a solid foundation to build successful career in
                 cybersecurity.
               </p>
             </div>
+
             <div className="space-y-4">
-              <p className="text-gray-300">
+              <p className="text-gray-300 leading-relaxed">
                 Hackersdemy is an inclusive space for students from all
                 educational backgrounds. Whether you&apos;re a beginner or
                 looking to advance your skills, I&apos;m here to guide you every
@@ -195,177 +168,160 @@ export default function Home() {
           </div>
         </TabsContent>
 
-        <TabsContent value="curriculum" className="space-y-4 mt-12">
-          <div className=" text-xl">
-            <div className="space-y-4">
-              <h2 className="text-2xl font-semibold">Curriculum</h2>
-              <p className="text-gray-300 text-xl">
-                Module 01: Prerequisites for Ethical Hacking
-              </p>
-              <p className="text-gray-300 text-xl">
-                Module 02: Footprinting and Reconnaissance
-              </p>
-              <p className="text-gray-300 text-">
-                Module 03: Scanning Networks
-              </p>
-              <p className="text-gray-300 text-">Module 04: Enumeration </p>
-              <p className="text-gray-300 text-">Module 05: System Hacking </p>
-              <p className="text-gray-300 text-">
-                {" "}
-                Module 06: Malware Threats{" "}
-              </p>
-              <p className="text-gray-300 text-">Module 07: Sniffing</p>
-              <p className="text-gray-300 text-">
-                Module 08: DOS and DDOS Attacks
-              </p>
-              <p className="text-gray-300 text-">
-                Module 09: Social Engineering
-              </p>
-              <p className="text-gray-300 text-">
-                Module 10: Vulnerability Analysis{" "}
-              </p>
-              <p className="text-gray-300 text-xl">
-                Module 11: Evading IDS, Firewalls, and Honeypots{" "}
-              </p>
-              <p className="text-gray-300 text-">
-                Module 12: Hacking Web Servers{" "}
-              </p>
-              <p className="text-gray-300 text-">
-                Module 13: Hacking Web Applications{" "}
-              </p>
-              <p className="text-gray-300 text-">
-                Module 14: Hacking Wireless Networks
-              </p>
-              <p className="text-gray-300 text-">
-                Module 15: Hacking Mobile Platforms{" "}
-              </p>
-              <p className="text-gray-300 text-">Module 16: Cryptography </p>
-              <p className="text-gray-300 text-">Module 17: IoT Hacking </p>
-              <p className="text-gray-300 text-">Module 18: Cloud Computing </p>
-              <p className="text-gray-300 text-">Module 19: Bonus Module</p>
-              <p className="text-gray-300">
+        <TabsContent value="curriculum" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
+          <div className="text-base md:text-xl">
+            <div className="space-y-6">
+              <h2 className="text-xl md:text-xl font-semibold mb-4 md:mb-6">Curriculum</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 md:gap-6">
+                {[
+                  "Module 01: Prerequisites for Ethical Hacking",
+                  "Module 02: Footprinting and Reconnaissance",
+                  "Module 03: Scanning Networks",
+                  "Module 04: Enumeration",
+                  "Module 05: System Hacking",
+                  "Module 06: Malware Threats",
+                  "Module 07: Sniffing",
+                  "Module 08: DOS and DDOS Attacks",
+                  "Module 09: Social Engineering",
+                  "Module 10: Vulnerability Analysis",
+                  "Module 11: Evading IDS, Firewalls, and Honeypots",
+                  "Module 12: Hacking Web Servers",
+                  "Module 13: Hacking Web Applications",
+                  "Module 14: Hacking Wireless Networks",
+                  "Module 15: Hacking Mobile Platforms",
+                  "Module 16: Cryptography",
+                  "Module 17: IoT Hacking",
+                  "Module 18: Cloud Computing",
+                  "Module 19: Bonus Module"
+                ].map((module, index) => (
+                  <p key={index} className="text-gray-300 leading-relaxed">
+                    {module}
+                  </p>
+                ))}
+              </div>
+              <p className="text-gray-300 mt-6 md:mt-8">
                 For complete info, click here{" "}
-                <Button variant={"ghost"}>
+                <Button variant={"ghost"} className="ml-2">
                   Download
-                  <DownloadIcon />
+                  <DownloadIcon className="ml-2" />
                 </Button>
               </p>
             </div>
           </div>
         </TabsContent>
 
-        <TabsContent value="faq" className="space-y-4 mt-6">
-          <Accordion type="single" collapsible className="w-full text-xl mb-12">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className=" text-xl">Is CEH a beginner-friendly course?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Yes</span>, it is designed for beginners and professionals who want to enhance their cybersecurity skills. The course starts with foundational concepts and gradually moves to advanced topics. It is structured to be accessible to both beginners and experienced professionals.
+        <TabsContent value="faq" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
+          <Accordion type="single" collapsible className="w-full text-base md:text-xl mb-8 md:mb-12 space-y-4">
+            <AccordionItem value="item-1" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Is CEH a beginner-friendly course?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">Yes</span>, it is designed for beginners and professionals who want to enhance their cybersecurity skills. The course starts with foundational concepts and gradually moves to advanced topics.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className=" text-xl">Do I need programming knowledge for CEH?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">No</span>. Programming knowledge is not required to get started with CEH. Although as you progress to higher fields and job roles in cybersecurity, 
-              understanding basic scripting languages like Python or Bash is beneficial to automate certain tasks. However, please note, this course
-              <span className="font-bold"> does not require</span> you to learn any programming language as it primarily focuses on tools and techniques rather than coding.
+            <AccordionItem value="item-2" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Do I need programming knowledge for CEH?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">No</span>. Programming knowledge is not required to get started with CEH. Although as you progress to higher fields and job roles in cybersecurity, 
+                understanding basic scripting languages like Python or Bash is beneficial to automate certain tasks. However, please note, this course
+                <span className="font-bold"> does not require</span> you to learn any programming language as it primarily focuses on tools and techniques rather than coding.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className=" text-xl">Who all is this CEH v13 course suitable for?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Anyone</span> with an interest in cybersecurity can join CEH v13, regardless of their background. At Hackersdemy, we’ve made the course 
-              accessible to learners from all domains of all age groups by covering essential fundamentals like Networking basics, Linux commands, 
-              and Virtualization prior to the course curriculum. Whether you&apos;re a high school student or a working professional from any field, this 
-              course is designed to help you build a strong foundation in ethical hacking from scratch with ease.
+            <AccordionItem value="item-3" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Who all is this CEH v13 course suitable for?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">Anyone</span> with an interest in cybersecurity can join CEH v13, regardless of their background. At Hackersdemy, we&apos;ve made the course 
+                accessible to learners from all domains of all age groups by covering essential fundamentals like Networking basics, Linux commands, 
+                and Virtualization prior to the course curriculum. Whether you&apos;re a high school student or a working professional from any field, this 
+                course is designed to help you build a strong foundation in ethical hacking from scratch with ease.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger className=" text-xl">How long does it take to complete CEH v13 training?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              The course spans <span className="font-bold">45 days</span> and is available in two flexible batch options. The weekday batch runs from Monday to Friday, 
-              with one-hour sessions each day. Alternatively, the weekend batch is designed for those with a busy schedule, offering 
-              two-hour classes exclusively on Saturdays and Sundays.
+            <AccordionItem value="item-4" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">How long does it take to complete CEH v13 training?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                The course spans <span className="font-bold">45 days</span> and is available in two flexible batch options. The weekday batch runs from Monday to Friday, 
+                with one-hour sessions each day. Alternatively, the weekend batch is designed for those with a busy schedule, offering 
+                two-hour classes exclusively on Saturdays and Sundays.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className=" text-xl">Will I get hands-on experience in this course?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Yes</span>. Our training at Hackersdemy provides a practical learning experience with real-world hacking techniques and security tools. 
-                You will work in a virtual lab environment to simulate cyberattacks and defenses using the same tools used in organizations with real-time 
-                scenarios. Hands-on practice ensures that you can apply theoretical knowledge effectively, which is what is <span className="font-bold">prioritized</span> at Hackersdemy.
+            <AccordionItem value="item-5" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Will I get hands-on experience in this course?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">Yes</span>. Our training at Hackersdemy provides a practical learning experience with real-world hacking techniques and security tools. 
+                  You will work in a virtual lab environment to simulate cyberattacks and defenses using the same tools used in organizations with real-time 
+                  scenarios. Hands-on practice ensures that you can apply theoretical knowledge effectively, which is what is <span className="font-bold">prioritized</span> at Hackersdemy.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-6">
-              <AccordionTrigger className=" text-xl">Is CEH certification worth it for career growth?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Yes</span>, CEH is a well-respected certification that can help you get jobs like Ethical Hacker, Penetration Tester, 
-              or SOC Analyst. Many organizations require CEH-certified professionals to secure their networks. It adds 
-              credibility to your resume and increases your earning potential.
+            <AccordionItem value="item-6" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Is CEH certification worth it for career growth?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">Yes</span>, CEH is a well-respected certification that can help you get jobs like Ethical Hacker, Penetration Tester, 
+                or SOC Analyst. Many organizations require CEH-certified professionals to secure their networks. It adds 
+                credibility to your resume and increases your earning potential.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-7">
-              <AccordionTrigger className=" text-xl">What job opportunities can I get after CEH?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              After completing CEH, you can work as an <span className="font-bold">Ethical Hacker, Penetration Tester, SOC Analyst, Security Administrator, 
-              Security Consultant, Cyber Defense Analyst</span> and a lot more job roles. To get a comprehensive list of 45+ job roles 
-              you can apply for, please visit the official EC-Council webpage for CEH.
+            <AccordionItem value="item-7" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">What job opportunities can I get after CEH?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                After completing CEH, you can work as an <span className="font-bold">Ethical Hacker, Penetration Tester, SOC Analyst, Security Administrator, 
+                Security Consultant, Cyber Defense Analyst</span> and a lot more job roles. To get a comprehensive list of 45+ job roles 
+                you can apply for, please visit the official EC-Council webpage for CEH.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-8">
-              <AccordionTrigger className=" text-xl">Will I be ready to write the CEH Certification Exam after completing this course from Hackersdemy?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Yes</span>, upon completing the CEH v13 course at Hackersdemy, you will be well-prepared to take the CEH certification 
-              exam. Our training covers all essential topics in-depth, including hands-on practicals and real-world scenarios, 
-              ensuring you understand both theoretical concepts with their practical applications. Additionally, we provide 
-              guidance on exam patterns, question types, and also conduct mock exams to boost your confidence and readiness for 
-              the certification.
+            <AccordionItem value="item-8" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Will I be ready to write the CEH Certification Exam after completing this course from Hackersdemy?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">Yes</span>, upon completing the CEH v13 course at Hackersdemy, you will be well-prepared to take the CEH certification 
+                exam. Our training covers all essential topics in-depth, including hands-on practicals and real-world scenarios, 
+                ensuring you understand both theoretical concepts with their practical applications. Additionally, we provide 
+                guidance on exam patterns, question types, and also conduct mock exams to boost your confidence and readiness for 
+                the certification.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-9">
-              <AccordionTrigger className=" text-xl">Along with the live classes, will I be getting the recordings and the course material as well?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              <span className="font-bold">Yes</span>, along with the live classes, you will receive both class recordings and comprehensive course material as well. 
-              This allows you to revisit the lessons at your convenience, reinforce your understanding, and catch up on any 
-              missed sessions.
+            <AccordionItem value="item-9" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">Along with the live classes, will I be getting the recordings and the course material as well?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                <span className="font-bold">Yes</span>, along with the live classes, you will receive both class recordings and comprehensive course material as well. 
+                This allows you to revisit the lessons at your convenience, reinforce your understanding, and catch up on any 
+                missed sessions.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-10">
-              <AccordionTrigger className=" text-xl">What other bonus content is provided with the course?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              Along with the core training, you’ll receive up to <span className="font-bold">15GB of bonus resources</span> to enhance your learning experience. 
-              This includes <span className="font-bold">comprehensive courseware</span> covering the entire syllabus, a detailed 
-              <span className="font-bold">lab manual</span> for hands-on practice, <span className="font-bold">additional books and exclusive video materials </span> 
-              to deepen your knowledge and explore advanced cybersecurity topics. These resources ensure you gain both theoretical understanding and practical expertise, setting you on the right 
-              path in cybersecurity.
+            <AccordionItem value="item-10" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">What other bonus content is provided with the course?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                Along with the core training, you&apos;ll receive up to <span className="font-bold">15GB of bonus resources</span> to enhance your learning experience. 
+                This includes <span className="font-bold">comprehensive courseware</span> covering the entire syllabus, a detailed 
+                <span className="font-bold">lab manual</span> for hands-on practice, <span className="font-bold">additional books and exclusive video materials </span> 
+                to deepen your knowledge and explore advanced cybersecurity topics. These resources ensure you gain both theoretical understanding and practical expertise, setting you on the right 
+                path in cybersecurity.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-11">
-              <AccordionTrigger className=" text-xl">What should I do if I miss a session and still have questions after watching the recordings?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              If you have any doubts after reviewing the recordings, you can reach out to us on <span className="font-bold">WhatsApp, Telegram or 
-              Discord channels</span> shared to you. Additionally, you can also schedule a <span className="font-bold">doubt-clearing session over the weekends</span>. 
-              If a student misses multiple sessions, the trainer will also allow you to attend those missed classes in 
-              <span className="font-bold"> alternate running batches</span>. All possible steps will be taken to ensure you fully understand every concept.
+            <AccordionItem value="item-11" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">What should I do if I miss a session and still have questions after watching the recordings?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                If you have any doubts after reviewing the recordings, you can reach out to us on <span className="font-bold">WhatsApp, Telegram or 
+                Discord channels</span> shared to you. Additionally, you can also schedule a <span className="font-bold">doubt-clearing session over the weekends</span>. 
+                If a student misses multiple sessions, the trainer will also allow you to attend those missed classes in 
+                <span className="font-bold"> alternate running batches</span>. All possible steps will be taken to ensure you fully understand every concept.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-12">
-              <AccordionTrigger className=" text-xl">What is the CEH Exam pattern, duration and passing score?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              The CEHv13 exam is a <span className="font-bold">4-hour</span> test consisting of <span className="font-bold">125 multiple-choice questions</span>. To pass the exam, 
-              you need to score between <span className="font-bold">60% and 80%</span>, with the passing percentage depending on the difficulty level 
-              of the questions. The exam has no negative marking, so you can attempt all questions without the risk 
-              of losing points for incorrect answers.
+            <AccordionItem value="item-12" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">What is the CEH Exam pattern, duration and passing score?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                The CEHv13 exam is a <span className="font-bold">4-hour</span> test consisting of <span className="font-bold">125 multiple-choice questions</span>. To pass the exam, 
+                you need to score between <span className="font-bold">60% and 80%</span>, with the passing percentage depending on the difficulty level 
+                of the questions. The exam has no negative marking, so you can attempt all questions without the risk 
+                of losing points for incorrect answers.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-13">
-              <AccordionTrigger className=" text-xl">What is the cancellation and refund policy at Hackersdemy?</AccordionTrigger>
-              <AccordionContent className=" text-xl">
-              At Hackersdemy, we understand that flexibility is important. That&apos;s why we offer the first three 
-              classes as free demo sessions, allowing you to experience the course before making any commitment. 
-              After the demo, payment can be made, and if you feel the course isn&apos;t the right fit, <span className="font-bold">you can request 
-              a cancellation or refund within the first 7 classes, including the demo sessions.</span> We want to ensure 
-              you&apos;re completely satisfied with your learning experience, and we&apos;re here to help you make the best 
-              decision. However, after the first 7 classes, candidates are not eligible for a refund or cancellation.
+            <AccordionItem value="item-13" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-base md:text-xl py-4">What is the cancellation and refund policy at Hackersdemy?</AccordionTrigger>
+              <AccordionContent className="text-base md:text-xl leading-relaxed pb-4">
+                At Hackersdemy, we understand that flexibility is important. That&apos;s why we offer the first three 
+                classes as free demo sessions, allowing you to experience the course before making any commitment. 
+                After the demo, payment can be made, and if you feel the course isn&apos;t the right fit, <span className="font-bold">you can request 
+                a cancellation or refund within the first 7 classes, including the demo sessions.</span> We want to ensure 
+                you&apos;re completely satisfied with your learning experience, and we&apos;re here to help you make the best 
+                decision. However, after the first 7 classes, candidates are not eligible for a refund or cancellation.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -374,4 +330,3 @@ export default function Home() {
     </div>
   );
 }
-
