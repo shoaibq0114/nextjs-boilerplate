@@ -132,10 +132,9 @@ export function CybersecurityInstituteComponent() {
               <div onClick={handleCEHClick} className="w-full max-w-sm">
                 <Card title="Certified Ethical Hacking" icon={<Image src="/CEH.png" alt="CEH" width={600} height={600} />} text="Master the skills to think and act like a hacker to protect systems from cyber threats">
                   <CanvasRevealEffect
-                    animationSpeed={3}
-                    containerClassName="bg-[#BC3232]"
-                    colors={[[240, 107, 107]]}
-                    dotSize={8}
+                   animationSpeed={3}
+                   containerClassName="bg-black"
+                   colors={[[244, 63, 94], [251, 113, 133]]}
                   />
                 </Card>
               </div>
