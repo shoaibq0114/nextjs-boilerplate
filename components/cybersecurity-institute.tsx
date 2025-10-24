@@ -7,7 +7,6 @@ import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
 import { AnimatePresence, motion } from "framer-motion"
 import React, { useEffect } from 'react'
-import { Testimonials } from './Testimonials'
 import { useRouter } from 'next/navigation'
 import { TypingAnimation } from "./ui/typing-animation-hero"
 
@@ -33,8 +32,6 @@ export function CybersecurityInstituteComponent() {
       document.documentElement.style.scrollBehavior = ''; // Reset on unmount
     };
   }, []);
-
-  // const [setRef, isIntersecting] = useIntersectionObserver({ threshold: 0.99 });
 
   const handleCEHClick = () => {
     console.log("CEH card clicked")
@@ -187,14 +184,6 @@ export function CybersecurityInstituteComponent() {
           </div>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <section id="testimonials" className="py-12 md:py-16">
-        <Testimonials />
-      </section>
-
-
-      {/* Footer */}
     </div>
   )
 }

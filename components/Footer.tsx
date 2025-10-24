@@ -3,8 +3,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import GlowingInput from "./ui/GlowingInput"
-
-//import { FloatingDock } from '@/components/magicui/floating-dock'
 import {
   IconBrandInstagram,
   IconBrandWhatsapp,
@@ -82,7 +80,7 @@ const Footer = () => {
     <footer className="bg-black text-white border-t border-gray-700 py-6 sm:py-8" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          
+
           {/* Contact Us */}
           <div className="space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold">Contact Us</h3>
@@ -95,6 +93,7 @@ const Footer = () => {
               <li>Phone no: +91-9849984778</li>
               <li>Email : shoaib@hackersdemy.com</li>
             </ul>
+
             <div className="mt-4 sm:mt-6">
               <div className="flex flex-row items-center justify-start space-x-3 sm:space-x-4">
                 {socialLinks.map((link, index) => (
@@ -121,7 +120,8 @@ const Footer = () => {
                 { label: 'About Us', href: '/about' },
                 { label: 'Why choose us?', href: '/about' },
                 { label: 'Trending Courses', href: '/#courses' },
-                { label: 'Student Testimonials', href: '/#testimonials' }
+                { label: 'Gallery', href: '/#gallery' },
+                { label: 'Student Testimonials', href: '/#testimonials' },
               ].map(({ label, href }) => (
                 <Link
                   key={label}

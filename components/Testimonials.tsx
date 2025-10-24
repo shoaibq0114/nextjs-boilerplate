@@ -97,3 +97,6 @@ export function Testimonials() {
     </div>
   );
 }
+
+export default Testimonials;
+

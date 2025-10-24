@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -11,7 +16,6 @@ body {
     text-wrap: balance;
   }
 }
-
 
 
 @layer base {
@@ -79,3 +83,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide scrollbars for horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

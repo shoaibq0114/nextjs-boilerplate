@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Toaster } from 'sonner'
 
@@ -42,7 +41,6 @@ export default function RootLayout({
           className: 'bg-black text-white border border-white',
         }}
       />
-        <Footer />
       </body>
     </html>
   );
