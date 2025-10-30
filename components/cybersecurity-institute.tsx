@@ -3,7 +3,7 @@
 
 import {Tomorrow} from "next/font/google"
 import Image from 'next/image'
-import { BackgroundBeams } from './ui/background-beams'
+// ⛔️ Removed: import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
 import { LazyMotion, domAnimation, motion, AnimatePresence } from "@/components/_motion"; // ✅ use motion wrapper
 import React, { useEffect } from "react";
@@ -36,40 +36,29 @@ export function CybersecurityInstituteComponent() {
   const handleCEHClick = () => {
     console.log("CEH card clicked")
     router.push('/ceh')
-
   }
 
   const handleSOCClick = () => {
     console.log("SOC card clicked")
     router.push('/soc')
-
   }
 
   const handleWAPTClick = () => {
     console.log("WAPT card clicked")
     router.push('/wapt')
-
   }
+
   const typewriter_words = [
-    {
-      text: "The",
-    },
-    {
-      text: "Hackersdemy",
-      className: "text-red-500 dark:text-red-500",
-    },
-    {
-      text: "Difference",
-    }
+    { text: "The" },
+    { text: "Hackersdemy", className: "text-red-500 dark:text-red-500" },
+    { text: "Difference" }
   ];
-
-
 
   return (
     // ✅ Wrap the whole animated section once. Framer's light features load only when this renders.
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen">
-        <BackgroundBeams />
+        {/* ⛔️ Removed <BackgroundBeams /> here */}
 
         {/* Hero Section */}
         <section className="py-12 md:py-20 relative">
@@ -208,6 +197,7 @@ export function CybersecurityInstituteComponent() {
   );
 }
 
+/* Card/Icons unchanged */
 const Card = ({
   title,
   icon,
@@ -262,15 +252,7 @@ const Card = ({
 
 export const Icon = ({ className, ...rest }: any) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-      className={className}
-      {...rest}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={className} {...rest}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
     </svg>
   );

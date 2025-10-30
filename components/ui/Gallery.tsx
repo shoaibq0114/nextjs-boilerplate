@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { LazyMotion, domAnimation, motion, AnimatePresence } from "@/components/_motion";
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { BackgroundBeams } from "./background-beams";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const images = Array.from({ length: 24 }, (_, i) => `/gallery/${i + 1}.jpg`);
@@ -76,7 +75,6 @@ export default function Gallery() {
   if (!shouldMount) {
     return (
       <section id="gallery" ref={gateRef} className="relative w-full py-20 overflow-hidden">
-        <BackgroundBeams />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -95,8 +93,6 @@ export default function Gallery() {
   /* ---------- Mounted gallery ---------- */
   return (
     <section id="gallery" ref={gateRef} className="relative w-full py-20 overflow-hidden">
-      <BackgroundBeams />
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Gallery</h2>
 
