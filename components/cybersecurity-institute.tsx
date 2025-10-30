@@ -3,7 +3,6 @@
 
 import {Tomorrow} from "next/font/google"
 import Image from 'next/image'
-// ⛔️ Removed: import { BackgroundBeams } from './ui/background-beams'
 import { FlipWords } from './ui/flip-words'
 import { LazyMotion, domAnimation, motion, AnimatePresence } from "@/components/_motion"; // ✅ use motion wrapper
 import React, { useEffect } from "react";
@@ -58,7 +57,7 @@ export function CybersecurityInstituteComponent() {
     // ✅ Wrap the whole animated section once. Framer's light features load only when this renders.
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen">
-        {/* ⛔️ Removed <BackgroundBeams /> here */}
+
 
         {/* Hero Section */}
         <section className="py-12 md:py-20 relative">

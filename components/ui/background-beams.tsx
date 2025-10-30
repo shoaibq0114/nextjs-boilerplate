@@ -170,7 +170,8 @@ export const BackgroundBeams = React.memo(function BackgroundBeams({
     <div
       className={cn(
         // z-0: above page background; your page content should be z-10.
-        "fixed inset-0 z-0 h-full w-full [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
+        // 🔐 IMPORTANT: `pointer-events-none` ensures this full-screen layer NEVER eats clicks.
+        "fixed inset-0 z-0 pointer-events-none h-full w-full [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
         className
       )}
       aria-hidden="true"
