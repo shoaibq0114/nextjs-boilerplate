@@ -4,15 +4,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-// ✅ Use the lightweight wrapper (re-exports from framer-motion)
+// ✅ Lightweight framer wrapper
 import { LazyMotion, domAnimation, motion, AnimatePresence } from "@/components/_motion";
 
 const transition = {
   type: "spring",
-  mass: 0.45,          // slightly lighter
-  damping: 14,         // a touch higher for quick settle
-  stiffness: 160,      // snappier feel
+  mass: 0.45,
+  damping: 14,
+  stiffness: 160,
   restDelta: 0.001,
   restSpeed: 0.001,
 };
@@ -38,12 +37,12 @@ export const MenuItem = ({
 
   return (
     <div onMouseEnter={() => setActive(item)} className="relative">
-      {/* Keep hover color as pure CSS, no JS animation needed */}
+      {/* Pure CSS hover (no JS animation) */}
       <p className="cursor-pointer text-black hover:opacity-90 transition-opacity dark:text-white">
         {item}
       </p>
 
-      {/* Mount dropdown only when ANY item active (AnimatePresence avoids layout thrash) */}
+      {/* Mount dropdown only when any item is active */}
       <AnimatePresence>
         {active !== null && (
           <motion.div
@@ -54,18 +53,20 @@ export const MenuItem = ({
           >
             {active === item && (
               <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 -translate-x-1/2 pt-4">
-                {/* layoutId enables the “shared” morph only for the active container */}
+                {/* D) Conditional blur: none on small screens, light blur on md+.
+                    Also replace heavy shadows with a single subtle one + ring. */}
                 <motion.div
                   layoutId="active"
                   transition={prefersReducedMotion ? { duration: 0 } : transition}
-                  className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                  className="
+                    rounded-2xl overflow-hidden
+                    bg-white/90 dark:bg-black/90
+                    ring-1 ring-white/10
+                    shadow-lg shadow-black/25
+                    backdrop-blur-none md:backdrop-blur-sm
+                  "
                 >
-                  {/* layout makes inner block resize smoothly but cheaply */}
-                  <motion.div
-                    layout
-                    transition={fadeTransition}
-                    className="w-max h-full p-4"
-                  >
+                  <motion.div layout transition={fadeTransition} className="w-max h-full p-4">
                     {children}
                   </motion.div>
                 </motion.div>
@@ -86,11 +87,18 @@ export const Menu = ({
   children: React.ReactNode;
 }) => {
   return (
-    // ✅ Wrap once so Framer’s light bundle is loaded on demand for this bar only
+    // ✅ Load framer’s light bundle only around the nav
     <LazyMotion features={domAnimation}>
       <nav
         onMouseLeave={() => setActive(null)}
-        className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6"
+        className="
+          relative rounded-full
+          border border-transparent
+          dark:bg-black dark:border-white/[0.2]
+          bg-white
+          shadow-input
+          flex justify-center space-x-4 px-8 py-6
+        "
       >
         {children}
       </nav>
@@ -119,7 +127,6 @@ export const ProductItem = ({
         className="flex-shrink-0 rounded-md shadow-2xl"
         decoding="async"
         sizes="(max-width: 640px) 40vw, (max-width: 1024px) 20vw, 140px"
-        // no priority here; nav items aren’t LCP
       />
       <div>
         <h4 className="text-xl font-bold mb-1 text-black dark:text-white">{title}</h4>
