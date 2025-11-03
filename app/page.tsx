@@ -47,7 +47,7 @@ export default function Home() {
           </ClientDeferred>
 
           {/* Defer Testimonials similarly */}
-          <section id="testimonials" className="mt-12">
+          <section id="testimonials" className="py-16 md:py-24">
             <ClientDeferred
               rootMargin="240px"
               fallback={<div className="my-16 h-48 rounded-2xl bg-zinc-900/40 animate-pulse" />}
