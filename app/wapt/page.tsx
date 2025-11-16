@@ -27,7 +27,7 @@ export default function Home() {
         className="absolute inset-0 z-0 size-full"
         squareSize={10}
         gridGap={4}
-        color="#006D32"    // Green color 
+        color="#00c05aff"    // Green color 
         maxOpacity={0.5}
         flickerChance={0.1}
       />

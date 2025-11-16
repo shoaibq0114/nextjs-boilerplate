@@ -28,7 +28,7 @@ export default function Home() {
         squareSize={10}
         gridGap={4}
        /* color="#006D32" */    // Green color 
-        color="#fc0000"         // Red color
+        color="#ff1c1cff"         // Red color
         maxOpacity={0.5}
         flickerChance={0.1}
       />

@@ -215,7 +215,7 @@ function ReviewCard({ img, name, date, body }: Review) {
       {/* in-card full overlay (scrollable) */}
       {showFull && (
         <div
-          className="absolute inset-0 z-20 rounded-xl bg-zinc-950 p-6"   // ← fully opaque now
+          className="absolute inset-0 z-20 rounded-xl bg-zinc-950 p-6"
           onMouseLeave={() => setShowFull(false)}
         >
           <div className="flex flex-row items-center gap-4">
@@ -236,9 +236,79 @@ function ReviewCard({ img, name, date, body }: Review) {
             </div>
           </div>
 
-          <div className="mt-4 h-[calc(100%-72px)] overflow-y-auto pr-1 text-base leading-relaxed text-white/90">
+          {/* Sleek minimal scrollbar just for this scroll area */}
+          <div className="mt-4 h-[calc(100%-72px)] overflow-y-auto pr-1 text-base leading-relaxed text-white/90 sleek-scroll overscroll-contain [scrollbar-gutter:stable]">
             {body}
           </div>
+
+          {/* Scoped scrollbar styles */}
+          <style jsx>{`
+            /* Firefox */
+            .sleek-scroll {
+              scrollbar-width: thin;
+              scrollbar-color: rgba(255,255,255,0.28) transparent;
+            }
+
+            /* WebKit (Chrome/Edge/Safari) */
+            .sleek-scroll::-webkit-scrollbar {
+              width: 10px;
+            }
+            .sleek-scroll::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .sleek-scroll::-webkit-scrollbar-thumb {
+              border-radius: 9999px;
+              border: 2px solid transparent;           /* creates a subtle inset gap */
+              background-clip: padding-box;
+              background: linear-gradient(
+                180deg,
+                rgba(255,255,255,0.38),
+                rgba(255,255,255,0.22)
+              );
+            }
+            .sleek-scroll:hover::-webkit-scrollbar-thumb {
+              background: linear-gradient(
+                180deg,
+                rgba(255,255,255,0.55),
+                rgba(255,255,255,0.35)
+              );
+            }
+            .sleek-scroll::-webkit-scrollbar-thumb:active {
+              background: linear-gradient(
+                180deg,
+                rgba(255,255,255,0.75),
+                rgba(255,255,255,0.5)
+              );
+            }
+
+            /* Optional: adjust for light theme */
+            @media (prefers-color-scheme: light) {
+              .sleek-scroll {
+                scrollbar-color: rgba(0,0,0,0.35) transparent;
+              }
+              .sleek-scroll::-webkit-scrollbar-thumb {
+                background: linear-gradient(
+                  180deg,
+                  rgba(0,0,0,0.35),
+                  rgba(0,0,0,0.2)
+                );
+              }
+              .sleek-scroll:hover::-webkit-scrollbar-thumb {
+                background: linear-gradient(
+                  180deg,
+                  rgba(0,0,0,0.55),
+                  rgba(0,0,0,0.35)
+                );
+              }
+              .sleek-scroll::-webkit-scrollbar-thumb:active {
+                background: linear-gradient(
+                  180deg,
+                  rgba(0,0,0,0.7),
+                  rgba(0,0,0,0.45)
+                );
+              }
+            }
+          `}</style>
         </div>
       )}
     </figure>
