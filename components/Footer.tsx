@@ -77,7 +77,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-black text-white border-t border-gray-700 py-6 sm:py-8" id="footer">
+    <footer id="footer" className="relative z-10 bg-black text-white border-t border-gray-700 py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
@@ -120,6 +120,7 @@ const Footer = () => {
                 { label: 'About Us', href: '/about' },
                 { label: 'Why choose us?', href: '/about' },
                 { label: 'Trending Courses', href: '/#courses' },
+                { label: 'Blog', href: '/blog' },
                 { label: 'Gallery', href: '/#gallery' },
                 { label: 'Student Testimonials', href: '/#testimonials' },
               ].map(({ label, href }) => (

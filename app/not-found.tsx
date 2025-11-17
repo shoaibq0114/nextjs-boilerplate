@@ -141,10 +141,10 @@ const NotFound = () => {
           <motion.h1 className="text-7xl font-bold text-white">
             404
           </motion.h1>
-          <h2 className="text-2xl font-semibold text-gray-300">Page Not Found</h2>
+          <h2 className="text-2xl font-semibold text-gray-300">Coming Soon</h2>
           <p className="text-gray-400 max-w-md mx-auto">
-            The requested resource could not be located on our servers.
-            Please check the URL or return to the dashboard.
+            The requested resource could not be located on our servers right now.
+            But it shall be available soon
           </p>
         </motion.div>
 

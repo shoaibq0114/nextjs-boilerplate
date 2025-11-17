@@ -36,7 +36,6 @@ export function Navbar() {
             {[
               { label: 'Home', href: '/' },
               { label: 'About Us', href: '/about' },
-              { label: 'Blog', href: '/blog' }
             ].map(({ label, href }) => (
               <button onClick={() => router.push(href)} key={label} className="p-[2px] relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
@@ -94,7 +93,6 @@ export function Navbar() {
             {[
               { label: 'Home', href: '/' },
               { label: 'About Us', href: '/about' },
-              { label: 'Blog', href: '/blog' }
             ].map(({ label, href }) => (
               <div key={label} className="p-[2px] relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />

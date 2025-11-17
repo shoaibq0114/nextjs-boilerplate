@@ -1,7 +1,6 @@
 // app/page.tsx
 import dynamicImport from "next/dynamic";
 import { CybersecurityInstituteComponent } from "@/components/cybersecurity-institute";
-import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClientDeferred from "@/components/ClientDeferred";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -56,7 +55,6 @@ export default function Home() {
             </ClientDeferred>
           </section>
 
-          <Footer />
         </div>
       </div>
     </ThemeProvider>
