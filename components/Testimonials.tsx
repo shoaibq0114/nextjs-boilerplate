@@ -27,11 +27,11 @@ const reviews: Review[] = [
   { name: "Dheerendra S", date: "20 May, 2024", body: "If anyone wants to learn ethical hacking i would highly recommend this course as sir explains everything in detail in an easy to understand manner! ", img: "https://avatar.vercel.sh/jane" },
   { name: "Harshvardhan Dattatray", date: "20 June, 2022", body: "Overall teaching is good and and the ability to teaching the particular topic is very nice also he cleared the all the doubts and clear my concepts about each and every point.", img: "https://avatar.vercel.sh/jenny" },
   { name: "Lakshmikanth Reddy", date: "27 Sep, 2021", body: "Very good training. Good knowledge of the subject. I really like this course, overall experience was good. Thank you so much for your support. Highly recommended to all.", img: "https://avatar.vercel.sh/james" },
-  { name: "Brajendra Singh", date: "8 Sep, 2021", body: "It was a awesome experience. You are having complete knowledge and it will be nice to meet you. Thank you so much for your support. Highly recommended to all.", img: "https://avatar.vercel.sh/james" },
-  { name: "Ronit Singh", date: "11 May, 2021", body: "The class is awesome and very nice. Thank you so much for your support. Highly recommended to all. Has good grip in the concept.", img: "https://avatar.vercel.sh/james" },
-  { name: "Ravi K", date: "21 May, 2021", body: "Explanation is super. Loved the class. Thank you sir. I think he is the best cyber trainer. Sir your explanation is super.", img: "https://avatar.vercel.sh/james" },
+  { name: "Brajendra Singh", date: "8 Sep, 2021", body: "It was a awesome experience. You are having complete knowledge and it will be nice to meet you. Thank you so much for your support. Highly recommended to all.", img: "https://avatar.vercel.sh/jack" },
+  { name: "Ronit Singh", date: "11 May, 2021", body: "The class is awesome and very nice. Thank you so much for your support. Highly recommended to all. Has good grip in the concept.", img: "https://avatar.vercel.sh/jill" },
+  { name: "Ravi K", date: "21 May, 2021", body: "Explanation is super. Loved the class. Thank you sir. I think he is the best cyber trainer. Sir your explanation is super.", img: "https://avatar.vercel.sh/john" },
   { name: "Prasanna J.", date: "30 Apr, 2021", body: "Excellent explaining very patience in teaching good teaching we have to chance learn more. It was a nice and I really want to appreciate and thank you for being such a wonderful trainer. The way you were interacting with students, way of teaching, making learning so interesting and explaining everything was outstanding. I wanted to thank you for being such an amazing person shoaib sir.", img: "https://avatar.vercel.sh/james" },
-  { name: "Sebin Cyriac", date: "25 June, 2021", body: "He explains very clearly everything. His style is very interesting. I thoroughly enjoyed sessions. Come to know about a lot of things in very short time.", img: "https://avatar.vercel.sh/james" },
+  { name: "Sebin Cyriac", date: "25 June, 2021", body: "He explains very clearly everything. His style is very interesting. I thoroughly enjoyed sessions. Come to know about a lot of things in very short time.", img: "https://avatar.vercel.sh/jenny" },
 ];
 
 const firstRow = reviews.slice(0, Math.ceil(reviews.length / 2));
@@ -318,21 +318,27 @@ function ReviewCard({ img, name, date, body }: Review) {
 /* ---------------- Section (original shell + gradients) ---------------- */
 export function Testimonials() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((r) => (
-          <ReviewCard key={`${r.name}-${r.date}`} {...r} />
-        ))}
-      </Marquee>
+    <div className="max-w-7xl mx-auto px-6">
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
+        Testimonials
+      </h2>
 
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((r) => (
-          <ReviewCard key={`${r.name}-${r.date}`} {...r} />
-        ))}
-      </Marquee>
+      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((r) => (
+            <ReviewCard key={`${r.name}-${r.date}`} {...r} />
+          ))}
+        </Marquee>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background" />
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((r) => (
+            <ReviewCard key={`${r.name}-${r.date}`} {...r} />
+          ))}
+        </Marquee>
+
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background" />
+      </div>
     </div>
   );
 }

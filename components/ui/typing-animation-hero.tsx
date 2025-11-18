@@ -26,10 +26,11 @@ export function TypingAnimation({
     forwardMotionProps: true,
   });
 
-  const [displayedText, setDisplayedText] = useState<string>("");
+  const [visibleCount, setVisibleCount] = useState(0);
   const [started, setStarted] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);
 
+  // When to start typing (immediately or on view)
   useEffect(() => {
     if (!startOnView) {
       const startTimeout = setTimeout(() => {
@@ -57,13 +58,17 @@ export function TypingAnimation({
     return () => observer.disconnect();
   }, [delay, startOnView]);
 
+  // Typing effect: increase visible character count
   useEffect(() => {
     if (!started) return;
 
+    setVisibleCount(0);
     let i = 0;
+    const chars = Array.from(children);
+
     const typingEffect = setInterval(() => {
-      if (i < children.length) {
-        setDisplayedText(children.substring(0, i + 1));
+      if (i < chars.length) {
+        setVisibleCount(i + 1);
         i++;
       } else {
         clearInterval(typingEffect);
@@ -75,16 +80,28 @@ export function TypingAnimation({
     };
   }, [children, duration, started]);
 
+  const characters = Array.from(children);
+
   return (
     <MotionComponent
       ref={elementRef}
       className={cn(
-        "text-4xl md:text-6xl font-bold leading-[5rem] tracking-[-0.02em]",
+        // Smaller + tighter on mobile, same big impact on desktop
+        "text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-snug md:leading-[3.5rem] lg:leading-[5rem] tracking-[-0.02em]",
         className,
       )}
       {...props}
     >
-      {displayedText}
+      {characters.map((char, index) => (
+        <span
+          key={index}
+          style={{
+            visibility: index < visibleCount ? "visible" : "hidden",
+          }}
+        >
+          {char}
+        </span>
+      ))}
     </MotionComponent>
   );
 }

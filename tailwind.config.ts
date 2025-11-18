@@ -58,6 +58,7 @@ const config: Config = {
   			}
   		},
   		borderRadius: {
+			large: "var(--radius)", // added to satisfy HeroUI / theme() usage
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'

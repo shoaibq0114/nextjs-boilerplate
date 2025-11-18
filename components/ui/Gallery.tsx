@@ -13,7 +13,6 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
  * - No local <BackgroundBeams /> (global beams live in app/page.tsx).
  * - Keeps lightbox animation; ESC/←/→ keys work only when open.
  * - Images use responsive sizes and only first 2 are priority.
- * - D) Remove backdrop blur from full-screen overlay to cut GPU cost.
  */
 
 const images = Array.from({ length: 24 }, (_, i) => `/gallery/${i + 1}.jpg`);
@@ -51,7 +50,6 @@ export default function Gallery() {
     const container = scrollRef.current;
     if (!container) return;
 
-    // Use the first snap card to estimate one-step width (includes gap)
     const card = container.querySelector<HTMLElement>("div.snap-center");
     const step = card ? card.getBoundingClientRect().width + 32 /* gap-8 */ : 320;
 
@@ -94,30 +92,28 @@ export default function Gallery() {
   /* ---------- Placeholder while offscreen (no animations) ---------- */
   if (!shouldMount) {
     return (
-      <section id="gallery" ref={gateRef} className="relative w-full py-20 overflow-hidden">
+      <div ref={gateRef} className="relative w-full overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                // Inert skeleton: no animate-pulse to keep it zero-cost
                 className="h-[220px] md:h-[260px] rounded-3xl bg-white/5 dark:bg-white/10"
               />
             ))}
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 
   /* ---------- Mounted gallery ---------- */
   return (
-    <section id="gallery" ref={gateRef} className="relative w-full py-20 overflow-hidden">
+    <div ref={gateRef} className="relative w-full overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Gallery</h2>
 
-        {/* Wrap only the animated parts with LazyMotion (keeps initial JS small) */}
         <LazyMotion features={domAnimation}>
           {/* 🔹 Scrollable carousel */}
           <div
@@ -129,7 +125,7 @@ export default function Gallery() {
               <div
                 key={i}
                 className="snap-center shrink-0 w-[85vw] sm:w-[50vw] md:w-[33vw] lg:w-[25vw] h-[320px] rounded-3xl shadow-2xl relative group cursor-pointer overflow-hidden
-                           transition-transform duration-150 ease-out hover:scale-[1.015]"
+                          transition-transform duration-150 ease-out hover:scale-[1.015]"
                 onClick={() => setSelectedIndex(i)}
                 role="button"
                 aria-label={`Open image ${i + 1}`}
@@ -143,7 +139,7 @@ export default function Gallery() {
                     fill
                     className="object-cover select-none"
                     sizes="(max-width: 640px) 85vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    priority={i < 2}     // only the first 2 get priority for faster first interaction
+                    priority={i < 2}
                     decoding="async"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 rounded-3xl transition-colors duration-200" />
@@ -152,7 +148,7 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* 🔽 Carousel Arrows (no backdrop blur → cheaper) */}
+          {/* 🔽 Carousel Arrows */}
           <div className="flex justify-center items-center gap-6 mt-6">
             <button
               type="button"
@@ -172,7 +168,7 @@ export default function Gallery() {
             </button>
           </div>
 
-          {/* 🔍 Lightbox (D: no backdrop blur on full-screen overlay) */}
+          {/* 🔍 Lightbox */}
           <AnimatePresence custom={direction}>
             {selectedIndex !== null && (
               <motion.div
@@ -244,6 +240,6 @@ export default function Gallery() {
           </AnimatePresence>
         </LazyMotion>
       </div>
-    </section>
+    </div>
   );
 }

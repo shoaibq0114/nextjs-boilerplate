@@ -4,7 +4,7 @@
 import {Tomorrow} from "next/font/google"
 import Image from 'next/image'
 import { FlipWords } from './ui/flip-words'
-import { LazyMotion, domAnimation, motion, AnimatePresence } from "@/components/_motion"; // ✅ use motion wrapper
+import { LazyMotion, domAnimation, motion, AnimatePresence } from "@/components/_motion";
 import React, { useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import { TypingAnimation } from "./ui/typing-animation-hero"
@@ -22,13 +22,14 @@ const tomorrow = Tomorrow(
   fallback: ["sans-serif"],
  }
 )
+
 export function CybersecurityInstituteComponent() {
   const router = useRouter()
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
     return () => {
-      document.documentElement.style.scrollBehavior = ''; // Reset on unmount
+      document.documentElement.style.scrollBehavior = '';
     };
   }, []);
 
@@ -54,13 +55,11 @@ export function CybersecurityInstituteComponent() {
   ];
 
   return (
-    // ✅ Wrap the whole animated section once. Framer's light features load only when this renders.
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen">
 
-
         {/* Hero Section */}
-        <section className="py-12 md:py-20 relative">
+        <section className="pt-12 md:pt-20 pb-0 relative">
           <div className="container mx-auto px-4 md:px-6">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-center">
               <FlipWords words={["Secure", "Respond", "Mitigate", "Harden", "Lead"]} duration={1500} />
@@ -69,8 +68,7 @@ export function CybersecurityInstituteComponent() {
               Turn Your Passion for Cybersecurity into a Professional Career
             </h2>
             <h1
-              className={`text-2xl md:text-4xl lg:text-6xl pt-12 md:pt-20 mb-6 md:mb-8 w-full md:max-w-[50vw] ${tomorrow.className}`}
-              style={{ height: "auto", minHeight: "12rem" }}
+              className={`pt-10 md:pt-16 lg:pt-20 mb-0 w-full md:max-w-[50vw] ${tomorrow.className}`}
             >
               <TypingAnimation>
                 Dive into the World of Cybersecurity with Hands-On Training at Hackersdemy.
@@ -79,8 +77,8 @@ export function CybersecurityInstituteComponent() {
           </div>
         </section>
 
-        {/* Statistics Section */}
-        <section className="py-12 md:py-16">
+        {/* Cyber Insights */}
+        <section className="mt-16 md:mt-24">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-10 text-center">Cyber Insights</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-7">
@@ -102,8 +100,8 @@ export function CybersecurityInstituteComponent() {
           </div>
         </section>
 
-        {/* Network Security Section */}
-        <section className="py-12 md:py-16">
+        {/* Network Security paragraph */}
+        <section className="mt-16 md:mt-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="text-center md:text-left w-full md:w-2/3">
@@ -118,11 +116,11 @@ export function CybersecurityInstituteComponent() {
           </div>
         </section>
 
-        {/* Solutions Section */}
-        <section className="py-12 md:py-16" id="courses">
+        {/* Courses Section */}
+        <section className="mt-16 md:mt-24" id="courses">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Courses Offered</h2>
-            <div className="py-12 md:py-20">
+            <div className="mt-12 md:mt-16">
               <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-6 md:gap-8 mx-auto">
                 <div onClick={handleCEHClick} className="w-full max-w-sm">
                   <Card
@@ -164,8 +162,8 @@ export function CybersecurityInstituteComponent() {
           </div>
         </section>
 
-        {/* diff Section */}
-        <section className="py-12 md:py-16">
+        {/* The Hackersdemy Difference */}
+        <section className="mt-16 md:mt-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center mb-8">
               <TypewriterEffectSmooth words={typewriter_words} />
@@ -231,7 +229,9 @@ const Card = ({
           >
             {children}
             <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-white text-4xl font-bold px-6">{text} <br /> <span className="text-sm">Click to know more</span></p>
+              <p className="text-white text-4xl font-bold px-6">
+                {text} <br /> <span className="text-sm">Click to know more</span>
+              </p>
             </div>
           </motion.div>
         )}
