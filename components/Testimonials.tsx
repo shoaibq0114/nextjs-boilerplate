@@ -23,10 +23,13 @@ type Review = {
 const reviews: Review[] = [
   { name: "Roshni Krishna", date: "12 Apr, 2025", body: "I had an amazing experience in the online cybersecurity course with Mr. Shoaib. He is one of the best teachers I’ve ever had,  knowledgeable, patient and explains concepts clearly from the basics. His one-on-one guidance and quick responses made learning so smooth and effective. Overall, a truly excellent instructor and a highly recommended course!", img: "https://avatar.vercel.sh/jack" },
   { name: "N. Likhit", date: "29 May, 2025", body: "The classes were excellent! The lessons were clear, descriptive, and easy to follow. Mr. Shoaib made complex topics simple and engaging, making the learning experience highly effective. Highly recommended!", img: "https://avatar.vercel.sh/jill" },
-  { name: "Maruthi", date: "21 May, 2022", body: "Superb training provided. CEHv11,concepts clear and all topics covered which are mentioned in the syllabus. Thank you so much sir.", img: "https://avatar.vercel.sh/john" },
+  { name: "Aruna Vukkadala", date: "18 Nov, 2025", body: "Thank you so much sir and you the best teacher I have meet in my life. The way you explained the concepts with real-world scenarios made it easy to understand and remember. I really appreciate your support, patience, and the effort you put into clearing our doubts. The hands-on approach, tools demonstration, and interview-oriented guidance were very useful.Thank you so much once again sir🤞", img: "https://avatar.vercel.sh/jenny" },
+  { name: "Chaitanya Kumar Sahu", date: "18 Nov, 2025", body: "I had a great learning experience in Cybersecurity and Networking. The teaching was very clear, practical, and easy to understand. The hands-on explanations and real-time examples helped me build strong confidence in the subject. Highly recommended for anyone who wants to learn cybersecurity and networking!", img: "https://avatar.vercel.sh/jack"},
+  { name: "Venubabu Kondaveeti", date: "17 Nov, 2025", body: "The training was very informative and practical. Your explanations were clear, and the hands-on sessions helped me understand the concepts better. Thank you for delivering the course in an engaging and easy-to-follow manner.", img: "https://avatar.vercel.sh/jill" },
+  { name: "Maruthi", date: "21 May, 2022", body: "Superb training provided. CEHv11,concepts clear and all topics covered which are mentioned in the syllabus. Thank you so much sir.", img: "https://avatar.vercel.sh/james" },
   { name: "Dheerendra S", date: "20 May, 2024", body: "If anyone wants to learn ethical hacking i would highly recommend this course as sir explains everything in detail in an easy to understand manner! ", img: "https://avatar.vercel.sh/jane" },
   { name: "Harshvardhan Dattatray", date: "20 June, 2022", body: "Overall teaching is good and and the ability to teaching the particular topic is very nice also he cleared the all the doubts and clear my concepts about each and every point.", img: "https://avatar.vercel.sh/jenny" },
-  { name: "Lakshmikanth Reddy", date: "27 Sep, 2021", body: "Very good training. Good knowledge of the subject. I really like this course, overall experience was good. Thank you so much for your support. Highly recommended to all.", img: "https://avatar.vercel.sh/james" },
+  { name: "Lakshmikanth Reddy", date: "27 Sep, 2021", body: "Very good training. Good knowledge of the subject. I really like this course, overall experience was good. Thank you so much for your support. Highly recommended to all.", img: "https://avatar.vercel.sh/jill" },
   { name: "Brajendra Singh", date: "8 Sep, 2021", body: "It was a awesome experience. You are having complete knowledge and it will be nice to meet you. Thank you so much for your support. Highly recommended to all.", img: "https://avatar.vercel.sh/jack" },
   { name: "Ronit Singh", date: "11 May, 2021", body: "The class is awesome and very nice. Thank you so much for your support. Highly recommended to all. Has good grip in the concept.", img: "https://avatar.vercel.sh/jill" },
   { name: "Ravi K", date: "21 May, 2021", body: "Explanation is super. Loved the class. Thank you sir. I think he is the best cyber trainer. Sir your explanation is super.", img: "https://avatar.vercel.sh/john" },
@@ -176,8 +179,18 @@ function InlineClamp({
   );
 }
 
-/* ---------------- Card with in-card overlay (auto-close on hover out) ---------------- */
-function ReviewCard({ img, name, date, body }: Review) {
+/* ---------------- Card with optional press-and-hold behaviour ---------------- */
+function ReviewCard({
+  img,
+  name,
+  date,
+  body,
+  enablePressHold,
+  onPressChange,
+}: Review & {
+  enablePressHold?: boolean;
+  onPressChange?: (pressed: boolean) => void;
+}) {
   const [showFull, setShowFull] = useState(false);
 
   useEffect(() => {
@@ -186,14 +199,39 @@ function ReviewCard({ img, name, date, body }: Review) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const handlePressStart = () => {
+    if (!enablePressHold) return;
+    setShowFull(true);
+    onPressChange?.(true);
+  };
+
+  const handlePressEnd = () => {
+    if (!enablePressHold) return;
+    setShowFull(false);
+    onPressChange?.(false);
+  };
+
+  const pressHandlers = enablePressHold
+    ? {
+        onPointerDown: handlePressStart,
+        onPointerUp: handlePressEnd,
+        onPointerCancel: handlePressEnd,
+      }
+    : {};
+
   return (
     <figure
-      onMouseLeave={() => setShowFull(false)}     // auto-reset when pointer leaves
+      onMouseLeave={() => {
+        setShowFull(false);
+        onPressChange?.(false);
+      }}
       className={cn(
         "relative w-80 cursor-pointer overflow-hidden rounded-xl border p-6",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-950 dark:hover:bg-gray-800"
+        "dark:border-gray-50/[.1] dark:bg-gray-950 dark:hover:bg-gray-800",
+        enablePressHold && "transition-transform duration-150 active:scale-[0.99]"
       )}
+      {...pressHandlers}
     >
       <div className="flex flex-row items-center gap-4">
         <Avatar src={img} name={name} />
@@ -209,15 +247,19 @@ function ReviewCard({ img, name, date, body }: Review) {
 
       {/* clamped preview (hidden while overlay open) */}
       <div className={cn("mt-4", showFull && "invisible")} aria-hidden={showFull}>
-        <InlineClamp text={body} maxLines={5} onExpand={() => setShowFull(true)} />
+        <InlineClamp
+          text={body}
+          maxLines={5}
+          onExpand={() => {
+            setShowFull(true);
+            onPressChange?.(true);
+          }}
+        />
       </div>
 
       {/* in-card full overlay (scrollable) */}
       {showFull && (
-        <div
-          className="absolute inset-0 z-20 rounded-xl bg-zinc-950 p-6"
-          onMouseLeave={() => setShowFull(false)}
-        >
+        <div className="absolute inset-0 z-20 rounded-xl bg-zinc-950 p-6">
           <div className="flex flex-row items-center gap-4">
             <Avatar src={img} name={name} />
             <div className="flex flex-col">
@@ -228,7 +270,10 @@ function ReviewCard({ img, name, date, body }: Review) {
             </div>
             <div className="ml-auto">
               <button
-                onClick={() => setShowFull(false)}
+                onClick={() => {
+                  setShowFull(false);
+                  onPressChange?.(false);
+                }}
                 className="text-sm font-medium text-white/80 underline decoration-white/40 underline-offset-[3px] hover:text-white hover:decoration-white/80"
               >
                 Close
@@ -258,7 +303,7 @@ function ReviewCard({ img, name, date, body }: Review) {
             }
             .sleek-scroll::-webkit-scrollbar-thumb {
               border-radius: 9999px;
-              border: 2px solid transparent;           /* creates a subtle inset gap */
+              border: 2px solid transparent;
               background-clip: padding-box;
               background: linear-gradient(
                 180deg,
@@ -281,7 +326,6 @@ function ReviewCard({ img, name, date, body }: Review) {
               );
             }
 
-            /* Optional: adjust for light theme */
             @media (prefers-color-scheme: light) {
               .sleek-scroll {
                 scrollbar-color: rgba(0,0,0,0.35) transparent;
@@ -315,15 +359,70 @@ function ReviewCard({ img, name, date, body }: Review) {
   );
 }
 
-/* ---------------- Section (original shell + gradients) ---------------- */
+/* ---------------- Section (mobile auto-scroll slider + desktop marquee) ---------------- */
 export function Testimonials() {
+  const mobileScrollRef = useRef<HTMLDivElement | null>(null);
+  const [mobilePaused, setMobilePaused] = useState(false);
+
+  // rAF-based slow auto-scroll on mobile slider
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+
+    let frameId: number;
+    const speed = 1.0; // px per frame at ~60fps ≈ 60px/s → clearly visible but still gentle
+
+    const step = () => {
+      const container = mobileScrollRef.current;
+      if (container && !mobilePaused) {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+
+        if (maxScroll > 0) {
+          if (container.scrollLeft >= maxScroll) {
+            container.scrollLeft = 0;
+          } else {
+            container.scrollLeft += speed;
+          }
+        }
+      }
+      frameId = requestAnimationFrame(step);
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [mobilePaused]);
+
   return (
     <div className="max-w-7xl mx-auto px-6">
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
         Testimonials
       </h2>
 
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
+      {/* Mobile: auto-scrolling, swipeable row with press-hold expand */}
+      <div className="md:hidden">
+        <div
+          ref={mobileScrollRef}
+          className="
+            flex gap-4 overflow-x-auto pb-4
+            snap-x snap-mandatory scroll-smooth no-scrollbar
+            -mx-6 px-6
+          "
+          aria-label="Student testimonials carousel"
+        >
+          {reviews.map((r) => (
+            <div key={`${r.name}-${r.date}`} className="snap-center shrink-0">
+              <ReviewCard
+                {...r}
+                enablePressHold
+                onPressChange={(pressed) => setMobilePaused(pressed)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop / tablet: original double marquee */}
+      <div className="hidden md:flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((r) => (
             <ReviewCard key={`${r.name}-${r.date}`} {...r} />

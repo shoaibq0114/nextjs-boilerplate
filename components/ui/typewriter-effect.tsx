@@ -13,7 +13,7 @@ export const TypewriterEffect = ({
   className?: string;
   cursorClassName?: string;
 }) => {
-  // Split words into characters (memoized so we don't redo work on re-renders)
+  // Split words into characters (memoized)
   const wordsArray = useMemo(
     () =>
       words.map((w) => ({
@@ -28,7 +28,8 @@ export const TypewriterEffect = ({
 
   useEffect(() => {
     if (!isInView) return;
-    // Keep the original reveal: set spans to inline-block + visible with a stagger
+
+    // Staggered reveal animation
     animate(
       "span",
       {
@@ -56,9 +57,8 @@ export const TypewriterEffect = ({
           <div key={`word-${wIdx}`} className="inline-block">
             {word.text.map((char, cIdx) => (
               <motion.span
-                // same starting state as original
-                initial={{}}
                 key={`char-${wIdx}-${cIdx}`}
+                initial={{}}
                 className={cn(
                   "dark:text-white text-black opacity-0 hidden",
                   word.className
@@ -72,13 +72,13 @@ export const TypewriterEffect = ({
         ))}
       </motion.div>
 
-      {/* Blinking caret (same as original) */}
+      {/* Blinking caret – height tied to font size */}
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
         className={cn(
-          "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-blue-500",
+          "inline-block rounded-sm w-[3px] h-[1em] md:h-[1.1em] lg:h-[1.2em] bg-blue-500",
           cursorClassName
         )}
       />
@@ -87,10 +87,10 @@ export const TypewriterEffect = ({
 };
 
 /**
- * Smooth variant (same look/feel as original):
+ * Smooth variant:
  * - Uses width reveal to simulate a sweeping typewriter appearance
- * - Cursor blinks
- * - NOTE: Fixed Tailwind typo `lg:text:3xl` -> `lg:text-3xl`
+ * - Cursor height is based on the same font size as the text,
+ *   so it looks consistent on mobile and desktop.
  */
 export const TypewriterEffectSmooth = ({
   words,
@@ -111,7 +111,13 @@ export const TypewriterEffectSmooth = ({
   );
 
   return (
-    <div className={cn("flex space-x-1 my-6", className)}>
+    <div
+      className={cn(
+        // 👇 font-size is now on the outer wrapper
+        "my-6 flex items-center space-x-2 text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold",
+        className
+      )}
+    >
       <motion.div
         className="overflow-hidden pb-2"
         initial={{ width: "0%" }}
@@ -119,35 +125,33 @@ export const TypewriterEffectSmooth = ({
         viewport={{ once: true }}
         transition={{ duration: 2, ease: "linear", delay: 1 }}
       >
-        <div
-          className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold"
-          style={{ whiteSpace: "nowrap" }}
-        >
-          <div>
-            {wordsArray.map((word, wIdx) => (
-              <div key={`word-${wIdx}`} className="inline-block">
-                {word.text.map((char, cIdx) => (
-                  <span
-                    key={`char-${wIdx}-${cIdx}`}
-                    className={cn("dark:text-white text-black", word.className)}
-                  >
-                    {char}
-                  </span>
-                ))}
-                &nbsp;
-              </div>
-            ))}
-          </div>
+        <div style={{ whiteSpace: "nowrap" }}>
+          {wordsArray.map((word, wIdx) => (
+            <div key={`word-${wIdx}`} className="inline-block">
+              {word.text.map((char, cIdx) => (
+                <span
+                  key={`char-${wIdx}-${cIdx}`}
+                  className={cn(
+                    "dark:text-white text-black",
+                    word.className
+                  )}
+                >
+                  {char}
+                </span>
+              ))}
+              &nbsp;
+            </div>
+          ))}
         </div>
       </motion.div>
 
-      {/* Blinking caret (same as original) */}
+      {/* Blinking caret – now inherits the same font size as the text */}
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
         className={cn(
-          "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-12 bg-red-500",
+          "block rounded-sm w-[3px] h-[1em] md:h-[1.1em] lg:h-[1.2em] bg-red-500",
           cursorClassName
         )}
       />
