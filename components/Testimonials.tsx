@@ -179,18 +179,8 @@ function InlineClamp({
   );
 }
 
-/* ---------------- Card with optional press-and-hold behaviour ---------------- */
-function ReviewCard({
-  img,
-  name,
-  date,
-  body,
-  enablePressHold,
-  onPressChange,
-}: Review & {
-  enablePressHold?: boolean;
-  onPressChange?: (pressed: boolean) => void;
-}) {
+/* ---------------- Card with in-card overlay (auto-close on hover out) ---------------- */
+function ReviewCard({ img, name, date, body }: Review) {
   const [showFull, setShowFull] = useState(false);
 
   useEffect(() => {
@@ -199,39 +189,14 @@ function ReviewCard({
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const handlePressStart = () => {
-    if (!enablePressHold) return;
-    setShowFull(true);
-    onPressChange?.(true);
-  };
-
-  const handlePressEnd = () => {
-    if (!enablePressHold) return;
-    setShowFull(false);
-    onPressChange?.(false);
-  };
-
-  const pressHandlers = enablePressHold
-    ? {
-        onPointerDown: handlePressStart,
-        onPointerUp: handlePressEnd,
-        onPointerCancel: handlePressEnd,
-      }
-    : {};
-
   return (
     <figure
-      onMouseLeave={() => {
-        setShowFull(false);
-        onPressChange?.(false);
-      }}
+      onMouseLeave={() => setShowFull(false)}     // auto-reset when pointer leaves
       className={cn(
         "relative w-80 cursor-pointer overflow-hidden rounded-xl border p-6",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-950 dark:hover:bg-gray-800",
-        enablePressHold && "transition-transform duration-150 active:scale-[0.99]"
+        "dark:border-gray-50/[.1] dark:bg-gray-950 dark:hover:bg-gray-800"
       )}
-      {...pressHandlers}
     >
       <div className="flex flex-row items-center gap-4">
         <Avatar src={img} name={name} />
@@ -247,19 +212,15 @@ function ReviewCard({
 
       {/* clamped preview (hidden while overlay open) */}
       <div className={cn("mt-4", showFull && "invisible")} aria-hidden={showFull}>
-        <InlineClamp
-          text={body}
-          maxLines={5}
-          onExpand={() => {
-            setShowFull(true);
-            onPressChange?.(true);
-          }}
-        />
+        <InlineClamp text={body} maxLines={5} onExpand={() => setShowFull(true)} />
       </div>
 
       {/* in-card full overlay (scrollable) */}
       {showFull && (
-        <div className="absolute inset-0 z-20 rounded-xl bg-zinc-950 p-6">
+        <div
+          className="absolute inset-0 z-20 rounded-xl bg-zinc-950 p-6"
+          onMouseLeave={() => setShowFull(false)}
+        >
           <div className="flex flex-row items-center gap-4">
             <Avatar src={img} name={name} />
             <div className="flex flex-col">
@@ -270,10 +231,7 @@ function ReviewCard({
             </div>
             <div className="ml-auto">
               <button
-                onClick={() => {
-                  setShowFull(false);
-                  onPressChange?.(false);
-                }}
+                onClick={() => setShowFull(false)}
                 className="text-sm font-medium text-white/80 underline decoration-white/40 underline-offset-[3px] hover:text-white hover:decoration-white/80"
               >
                 Close
@@ -303,7 +261,7 @@ function ReviewCard({
             }
             .sleek-scroll::-webkit-scrollbar-thumb {
               border-radius: 9999px;
-              border: 2px solid transparent;
+              border: 2px solid transparent;           /* creates a subtle inset gap */
               background-clip: padding-box;
               background: linear-gradient(
                 180deg,
@@ -326,6 +284,7 @@ function ReviewCard({
               );
             }
 
+            /* Optional: adjust for light theme */
             @media (prefers-color-scheme: light) {
               .sleek-scroll {
                 scrollbar-color: rgba(0,0,0,0.35) transparent;
@@ -359,70 +318,15 @@ function ReviewCard({
   );
 }
 
-/* ---------------- Section (mobile auto-scroll slider + desktop marquee) ---------------- */
+/* ---------------- Section (original shell + gradients) ---------------- */
 export function Testimonials() {
-  const mobileScrollRef = useRef<HTMLDivElement | null>(null);
-  const [mobilePaused, setMobilePaused] = useState(false);
-
-  // rAF-based slow auto-scroll on mobile slider
-  useEffect(() => {
-    const el = mobileScrollRef.current;
-    if (!el) return;
-
-    let frameId: number;
-    const speed = 1.0; // px per frame at ~60fps ≈ 60px/s → clearly visible but still gentle
-
-    const step = () => {
-      const container = mobileScrollRef.current;
-      if (container && !mobilePaused) {
-        const maxScroll = container.scrollWidth - container.clientWidth;
-
-        if (maxScroll > 0) {
-          if (container.scrollLeft >= maxScroll) {
-            container.scrollLeft = 0;
-          } else {
-            container.scrollLeft += speed;
-          }
-        }
-      }
-      frameId = requestAnimationFrame(step);
-    };
-
-    frameId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frameId);
-  }, [mobilePaused]);
-
   return (
     <div className="max-w-7xl mx-auto px-6">
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
         Testimonials
       </h2>
 
-      {/* Mobile: auto-scrolling, swipeable row with press-hold expand */}
-      <div className="md:hidden">
-        <div
-          ref={mobileScrollRef}
-          className="
-            flex gap-4 overflow-x-auto pb-4
-            snap-x snap-mandatory scroll-smooth no-scrollbar
-            -mx-6 px-6
-          "
-          aria-label="Student testimonials carousel"
-        >
-          {reviews.map((r) => (
-            <div key={`${r.name}-${r.date}`} className="snap-center shrink-0">
-              <ReviewCard
-                {...r}
-                enablePressHold
-                onPressChange={(pressed) => setMobilePaused(pressed)}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop / tablet: original double marquee */}
-      <div className="hidden md:flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
+      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((r) => (
             <ReviewCard key={`${r.name}-${r.date}`} {...r} />
