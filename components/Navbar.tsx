@@ -17,7 +17,7 @@ export function Navbar() {
 
   return (
     <section className="py-4">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/">

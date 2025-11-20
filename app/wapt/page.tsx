@@ -36,7 +36,7 @@ export default function Home() {
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-center leading-tight">
           Web Application Penetration Testing
         </h1>
-        <p className="text-base md:text-xl text-center leading-relaxed whitespace-nowrap"> 
+        <p className="text-base md:text-xl text-center mx-auto max-w-2xl leading-relaxed"> 
         Master web application security by exploiting and securing vulnerabilities, including the OWASP Top 10 and beyond.
         </p>
       </div>
