@@ -202,11 +202,22 @@ export default function Home() {
               </div>
               <p className="text-gray-300 mt-6 md:mt-8">
                 For complete info, click here{" "}
-                <Button variant={"ghost"} className="ml-2">
-                  Download
-                  <DownloadIcon className="ml-2" />
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="ml-2"
+                >
+                  <a
+                    href="https://drive.google.com/file/d/1TZPIdSE3LJengodjBDUnh_0Z-gPMzBkq/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download
+                    <DownloadIcon className="ml-2" />
+                  </a>
                 </Button>
               </p>
+
             </div>
           </div>
         </TabsContent>
