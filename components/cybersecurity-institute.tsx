@@ -169,7 +169,7 @@ export function CybersecurityInstituteComponent() {
                     title="Certified Ethical Hacking"
                     icon={
                       <Image
-                        src="/CEH.png"
+                        src="/CEH.webp"
                         alt="CEH"
                         width={600}
                         height={600}
@@ -194,7 +194,7 @@ export function CybersecurityInstituteComponent() {
                     title="Web Application Penetration Testing"
                     icon={
                       <Image
-                        src="/WAPT.png"
+                        src="/WAPT.webp"
                         alt="WAPT"
                         width={600}
                         height={600}
@@ -215,7 +215,7 @@ export function CybersecurityInstituteComponent() {
                     title="SOC"
                     icon={
                       <Image
-                        src="/SOC.png"
+                        src="/SOC.webp"
                         alt="CEH"
                         width={600}
                         height={600}
