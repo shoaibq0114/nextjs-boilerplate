@@ -26,7 +26,7 @@ export function Navbar() {
                 alt="Hackersdemy Logo"
                 width={300}
                 height={300}
-                className="w-auto h-10 sm:h-12 md:h-14 lg:h-16"
+                className="w-auto h-14 sm:h-16 md:h-18 lg:h-20 xl:h-20"
               />
             </Link>
           </div>
