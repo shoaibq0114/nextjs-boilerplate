@@ -86,9 +86,9 @@ const Footer = () => {
             <h3 className="text-xl sm:text-2xl font-bold">Contact Us</h3>
             <ul className="text-base sm:text-lg space-y-1">
               <li>Visakhapatnam</li>
-              <li>9-9-117,</li>
-              <li>Kalaa Bharti Road,</li>
-              <li>Maddilapalem,</li>
+              <li>12-26-114,</li>
+              <li>Sector - 10,</li>
+              <li>MVP Colony,</li>
               <li>Visakhapatnam - 530003</li>
               <li>Phone no: +91-9849984778</li>
               <li>Email : shoaib@hackersdemy.com</li>
